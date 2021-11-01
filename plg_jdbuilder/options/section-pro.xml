@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element>
+   <form>
+      <fields>
+         <!-- Design Options -->
+         <fieldset name="design" ordering="9" label="JDB_DESIGN_TITLE">
+            <!--  Design Groups -->
+            <field type="group" ordering="9" name="shapeDivider" label="JDB_SHAPE_DIVIDER"></field>
+            
+            <!--  Section Shape Divider Options -->
+
+            <!--  Top Shape Divider Options -->
+
+            <field type="spacer" label="JDB_TOP_DIVIDER" group="shapeDivider">
+            </field>
+
+            <field type="shapedividers" label="JDB_STYLE" group="shapeDivider" name="topShapeDivider"></field>
+
+            <field type="color" showon="params.topShapeDivider!=''" label="JDB_COLOR" group="shapeDivider" name="topShapeDividerColor" default="#fff">
+            </field>
+
+            <field type="slider" showon="params.topShapeDivider!=''" label="JDB_WIDTH" group="shapeDivider" name="topShapeDividerWidth" responsive="true" min="100" max="500" default="100" unit="#">
+            </field>
+
+            <field type="slider" showon="params.topShapeDivider!=''" label="JDB_HEIGHT" group="shapeDivider" name="topShapeDividerHeight" responsive="true" min="0" max="500" default="220" unit="px">
+            </field>
+
+            <field type="switch" showon="params.topShapeDivider!=''" label="JDB_FLIP" group="shapeDivider" name="topShapeDividerFlip" default="false">
+            </field>
+
+            <field type="switch" showon="params.topShapeDivider!=''" label="JDB_BRING_TO_FRONT" group="shapeDivider" name="topShapeDividerFront" default="false">
+            </field>
+
+            <!--  Bottom Shape Divider Options -->
+
+            <field type="spacer" label="JDB_BOTTOM_DIVIDER" group="shapeDivider">
+            </field>
+
+            <field type="shapedividers" label="JDB_STYLE" group="shapeDivider" name="bottomShapeDivider"></field>
+
+            <field type="color" showon="params.bottomShapeDivider!=''" label="JDB_COLOR" group="shapeDivider" name="bottomShapeDividerColor" default="#fff">
+            </field>
+
+            <field type="slider" showon="params.bottomShapeDivider!=''" label="JDB_WIDTH" group="shapeDivider" name="bottomShapeDividerWidth" responsive="true" min="100" max="500" default="100" unit="#">
+            </field>
+
+            <field type="slider" showon="params.bottomShapeDivider!=''" label="JDB_HEIGHT" group="shapeDivider" name="bottomShapeDividerHeight" responsive="true" min="0" max="500" default="220" unit="px">
+            </field>
+
+            <field type="switch" showon="params.bottomShapeDivider!=''" label="JDB_FLIP" group="shapeDivider" name="bottomShapeDividerFlip" default="false">
+            </field>
+
+            <field type="switch" showon="params.bottomShapeDivider!=''" label="JDB_BRING_TO_FRONT" group="shapeDivider" name="bottomShapeDividerFront" default="false">
+            </field>
+         </fieldset>
+      </fields>
+   </form>
+</element>

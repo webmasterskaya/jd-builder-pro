@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="progress-bar">
+   <title>Progress Bar</title>
+   <icon>media/jdbuilder/images/icons/elements/progress-bar.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/progress-bar-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <!--  Element Options -->
+            <field type="group" name="barstyle" label="JDB_PROGRESS_BAR_STYLING"></field>
+               <field
+                  type="repeatable"
+                  name="bars"
+                  label="JDB_PROGRESS_BAR_ADD_BAR"
+                  item-title-field="title"
+                  group="basic"
+                  default='[{"title":"Your text here", "value": {"value": 70}},{"title":"Your text here", "value": {"value": 50}},{"title":"Your text here", "value": {"value": 90}}]'
+               >
+               <form>
+                  <field
+                     type="text"
+                     name="title"
+                     label="JDB_TITLE"
+                  />
+                  <field
+                     type="slider"
+                     name="value"
+                     label="JDB_PERCENTAGE"
+                     default="80"
+                     min="0"
+                     max="100"
+                     unit="%"
+                  />
+               </form>
+            </field>
+            <!-- Styling -->
+            <field
+               type="list"
+               name="barType"
+               label="JDB_ELEMENT_TYPE_LABEL"
+               default="default"
+               group="barstyle"
+            >
+               <option value="default">JDB_DEFAULT</option>
+               <option value="primary">JDB_PRIMARY</option>
+               <option value="secondary">JDB_SECONDARY</option>
+               <option value="success">JDB_SUCCESS</option>
+               <option value="danger">JDB_DANGER</option>
+               <option value="warning">JDB_WARNING</option>
+               <option value="info">JDB_INFO</option>
+            </field>
+            <field
+               type="slider"
+               name="barHeight"
+               label="JDB_PROGRESS_BAR_HEIGHT"
+               default=""
+               min="1"
+               max="100"
+               unit="px"
+               group="barstyle">
+            </field>
+            <field type="slider" name="barSpacing" label="JDB_SPACE_BETWEEN" min="0" max="200" unit="px" responsive="true" group="barstyle">
+            </field>
+            <field
+               type="switch"
+               name="barStriped"
+               label="JDB_PROGRESS_BAR_STRIPED"
+               default="false"
+               group="barstyle">
+            </field>
+            <field
+               type="switch"
+               name="barStripedAnimation"
+               label="JDB_PROGRESS_BAR_ANIMATED_STRIPED"
+               default="false"
+               group="barstyle"
+               showon="params.barStriped"
+               >
+            </field>
+            <field
+               type="switch"
+               name="displayLabels"
+               label="JDB_PROGRESS_BAR_DISPLAY_TITLE"
+               default="true"
+               group="barstyle"
+               >
+            </field>
+            <field
+               type="switch"
+               name="displayPercentageLabels"
+               label="JDB_PROGRESS_BAR_DISPLAY_PERCENTAGE"
+               default="true"
+               group="barstyle"
+               >
+            </field>
+            <field
+               name="labelPosition"
+               type="radio"
+               label="JDB_PROGRESS_BAR_POSITION_TITLE_PERCENTAGE"
+               default="outside"
+               radiotype="buttons"
+               group="barstyle">
+               <option value="inside">JDB_INSIDE</option>
+               <option value="outside">JDB_OUTSIDE</option>
+            </field>
+            <field
+               type="spacer"
+               label="JDB_STYLE_SETTINGS_SPACER"
+               group="barstyle"
+            >
+            </field>
+            <field
+               type="color"
+               name="barColor"
+               label="JDB_PROGRESS_BAR_BAR_COLOR"
+               group="barstyle"
+               default=""
+               width="6"
+               >
+            </field>
+            <field
+               type="color"
+               name="barProgressColor"
+               label="JDB_PROGRESS_BAR_PROGRESS_COLOR"
+               group="barstyle"
+               default=""
+               width="6"
+               >
+            </field>
+            <field
+               type="color"
+               name="labelColor"
+               label="JDB_PROGRESS_BAR_COLOR_TITLE_PERCENTAGE"
+               group="barstyle"
+               default=""
+               width="12"
+               >
+            </field>
+            <field
+               type="typography"
+               name="labelTypography"
+               label="JDB_PROGRESS_BAR_TYPOGRAPHY_TITLE_PERCENTAGE"
+               group="barstyle"
+               responsive="true"
+               default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}'
+               >
+            </field>
+            <field type="spacing" name="barBorderRadius" label="JDB_BORDER_RADIUS" group="barstyle" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' corners="true" units="px,%,em" responsive="true">
+            </field>
+            <field type="list" name="barBorderStyle" label="JDB_BORDER_TYPE" default="none" group="barstyle" search="true">
+               <option value="none">JDB_BORDER_NONE</option>
+               <option value="dotted">JDB_BORDER_DOTTED</option>
+               <option value="dashed">JDB_BORDER_DASHED</option>
+               <option value="solid">JDB_BORDER_SOLID</option>
+               <option value="double">JDB_BORDER_DOUBLE</option>
+               <option value="groove">JDB_BORDER_GROOVE</option>
+            </field>
+            <field
+               type="color"
+               name="barBorderColor"
+               label="JDB_BORDER_COLOR"
+               group="barstyle"
+               default=""
+               showon="params.barBorderStyle!='none'"
+               >
+            </field>
+            <field type="spacing" name="barBorderWidth" label="JDB_BORDER_WIDTH" group="barstyle" showon="params.barBorderStyle!='none'" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' units="px,%,em" responsive="true">
+            </field>
+            <field type="color" name="barBorderColor" label="JDB_BORDER_COLOR" group="barstyle" showon="params.barBorderStyle!='none'" default="">
+            </field>
+            <field
+               type="boxshadow"
+               name="barBoxShadow"
+               label="JDB_BOX_SHADOW"
+               default=""
+               group="barstyle"
+            >
+            </field>
+         </fieldset>
+      </fields>
+   </form>
+</element>

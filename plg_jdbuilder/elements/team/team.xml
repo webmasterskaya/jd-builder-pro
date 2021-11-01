@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="team">
+   <title>Team</title>
+   <icon>media/jdbuilder/images/icons/elements/team.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/team-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <!--  Element Options -->
+            <field type="group" name="imagestyle" label="JDB_TEAM_IMAGE_STYLING">
+            </field>
+            <field type="group" name="namestyle" label="JDB_TEAM_NAME_STYLING">
+            </field>
+            <field type="group" name="designationstyle" label="JDB_TEAM_DESIGNATION_STYLING">
+            </field>
+            <field type="group" name="biostyle" label="JDB_TEAM_BIO_STYLING">
+            </field>
+            <field type="group" name="socialstyle" label="JDB_TEAM_SOCIAL_LINKS_STYLING">
+            </field>
+
+            <field name="memberName" type="text" label="JDB_TEAM_NAME" default="John Doe" group="basic">
+            </field>
+            <field name="memberDesignation" type="text" label="JDB_TEAM_DESIGNATION" default="Marketing Executive" group="basic">
+            </field>
+            <field name="memberAvatar" type="image" label="JDB_TEAM_AVTAR" default="link:https://www.joomdev.com/images/jdbuilder/team1.jpg" group="basic">
+            </field>
+            <field name="memberBio" type="code-editor" language="html" label="JDB_TEAM_SHORT_BIO" default="Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, quis?" group="basic">
+            </field>
+            <field type="repeatable" name="memberSocialLinks" label="JDB_TEAM_SOCIAL_PROFILE" group="basic" item-title-field="title" item-title="Link" item-icon="fas fa-share-alt" item-icon-field="icon" default='[{"title":"Facebook", "icon":"fab fa-facebook-f", "link": "#", "linkTargetBlank": true, "linkNoFollow": false}, {"title":"Twitter", "icon":"fab fa-twitter", "link": "#", "linkTargetBlank": true, "linkNoFollow": false}, {"title":"Instagram", "icon":"fab fa-instagram", "link": "#", "linkTargetBlank": true, "linkNoFollow": false}]'>
+               <form>
+                  <field type="text" label="JDB_TITLE" name="title" default="Social"></field>
+                  <field type="icon" label="JDB_ICON" name="icon" default="fas fa-share-alt"></field>
+                  <field name="link" type="text" label="JDB_LINK_LABEL" default="#">
+                  </field>
+                  <field name="linkTargetBlank" type="switch" label="JDB_LINK_TARGET_LBL" default="true" showon="params.link!=''" width="6">
+                  </field>
+                  <field name="linkNoFollow" type="switch" label="JDB_LINK_NOFOLLOW_LBL" default="false" showon="params.link!=''" width="6">
+                  </field>
+               </form>
+            </field>
+
+            <!-- Image Styling -->
+            <field name="imageWidth" type="slider" label="JDB_WIDTH" default='{"value":"", "unit": "px"}' min="0" max="2000" units="px,%" group="imagestyle" responsive="true">
+            </field>
+            <field type="spacing" name="imageBorderRadius" label="JDB_BORDER_RADIUS" group="imagestyle" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' corners="true" units="px,%,em" responsive="true">
+            </field>
+            <field type="list" name="imageBorderStyle" label="JDB_BORDER_TYPE" default="none" group="imagestyle" search="true">
+               <option value="none">JDB_BORDER_NONE</option>
+               <option value="dotted">JDB_BORDER_DOTTED</option>
+               <option value="dashed">JDB_BORDER_DASHED</option>
+               <option value="solid">JDB_BORDER_SOLID</option>
+               <option value="double">JDB_BORDER_DOUBLE</option>
+               <option value="groove">JDB_BORDER_GROOVE</option>
+            </field>
+            <field type="spacing" name="imageBorderWidth" label="JDB_BORDER_WIDTH" group="imagestyle" showon="params.imageBorderStyle!='none'" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' units="px,%,em" responsive="true">
+            </field>
+            <field type="color" name="imageBorderColor" label="JDB_BORDER_COLOR" group="imagestyle" showon="params.imageBorderStyle!='none'" default="">
+            </field>
+            <field type="boxshadow" name="imageBoxShadow" label="JDB_BOX_SHADOW" group="imagestyle" default="" responsive="true">
+            </field>
+            <!-- Image Styling End -->
+
+            <!-- Name Styling -->
+            <field type="list" name="nameHtmlTag" label="JDB_HTML_TAG" group="namestyle" default="h4">
+               <option value="h1">JDB_H1</option>
+               <option value="h2">JDB_H2</option>
+               <option value="h3">JDB_H3</option>
+               <option value="h4">JDB_H4</option>
+               <option value="h5">JDB_H5</option>
+               <option value="h6">JDB_H6</option>
+            </field>
+
+            <field type="slider" name="nameSpacing" label="JDB_SPACING" min="0" max="200" unit="px" default="" responsive="true" group="namestyle">
+            </field>
+
+            <field type="color" name="nameColor" label="JDB_COLOR" default="" group="namestyle">
+            </field>
+
+            <field type="typography" name="nameTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="namestyle">
+            </field>
+            <!-- Name Styling End -->
+
+            <!-- Designation Styling -->
+            <field type="slider" name="designationSpacing" label="JDB_SPACING" min="0" max="200" unit="px" default="" responsive="true" group="designationstyle">
+            </field>
+
+            <field type="color" name="designationColor" label="JDB_COLOR" default="" group="designationstyle">
+            </field>
+
+            <field type="typography" name="designationTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":16, "sizeUnit":"px", "alignment":"center", "weight":"", "transform":"", "style":"italic", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="designationstyle">
+            </field>
+            <!-- Designation Styling End -->
+
+            <!-- Bio Styling -->
+            <field type="slider" name="bioSpacing" label="JDB_SPACING" min="0" max="200" unit="px" default="10" responsive="true" group="biostyle">
+            </field>
+
+            <field type="color" name="bioColor" label="JDB_COLOR" default="" group="biostyle">
+            </field>
+
+            <field type="typography" name="bioTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":16, "sizeUnit":"px", "alignment":"center", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="biostyle">
+            </field>
+            <!-- Bio Styling End -->
+
+            <!-- Social Links Styling -->
+
+            <field type="slider" name="slSpacing" label="JDB_SPACING" min="0" max="200" unit="px" default="10" responsive="true" group="socialstyle">
+            </field>
+
+            <field name="slPosition" type="radio" radiotype="buttons" label="JDB_ICON_POSITION" default="afterbio" group="socialstyle">
+               <option value="beforebio">JDB_TEAM_BEFORE_SHORT_BIO</option>
+               <option value="afterbio">JDB_TEAM_AFTER_SHORT_BIO</option>
+            </field>
+
+            <field name="slAlignment" group="socialstyle" type="radio" radiotype="buttons" label="JDB_ALIGNMENT" default="center" responsive="true">
+               <option value="left" icon="fa fa-align-left">JDB_LEFT</option>
+               <option value="center" icon="fa fa-align-center">JDB_CENTER</option>
+               <option value="right" icon="fa fa-align-right">JDB_RIGHT</option>
+            </field>
+
+            <field type="slider" group="socialstyle" label="JDB_TEAM_INNER_PADDING" name="innerPadding" unit="px" default="10" responsive="true">
+            </field>
+
+            <field type="spacer" group="socialstyle" />
+
+            <field type="radio" group="socialstyle" radiotype="buttons" label="JDB_COLORS" name="iconStyle" default="brand">
+               <option value="brand">JDB_BRAND_COLOR</option>
+               <option value="custom">JDB_CUSTOM_COLOR</option>
+            </field>
+
+            <field type="alert" description="JDB_TEAM_BRAND_COLOR" group="socialstyle" showon="params.iconStyle=='brand'">
+            </field>
+
+            <field name="brandColorInverted" type="switch" label="JDB_INVERTED_COLORS" group="socialstyle" default="false" showon="params.iconStyle=='brand'">
+            </field>
+
+            <field type="color" width="6" group="socialstyle" label="JDB_FORGROUND_COLORS" name="slColor" showon="params.iconStyle=='custom'">
+            </field>
+
+            <field type="color" width="6" group="socialstyle" label="JDB_BACKGROUND_COLOR" name="slBackgroundColor" showon="params.iconStyle=='custom'">
+            </field>
+
+            <field type="color" width="12" group="socialstyle" label="JDB_BORDER_COLOR" name="slBorderColor" showon="params.iconStyle=='custom'">
+            </field>
+
+            <field type="spacer" label="JDB_HOVER_OPTIONS_DIVIDER" group="socialstyle">
+            </field>
+
+            <field type="color" width="6" group="socialstyle" label="JDB_FORGROUND_COLORS" name="slHoverColor">
+            </field>
+
+            <field type="color" width="6" group="socialstyle" label="JDB_BACKGROUND_COLOR" name="slHoverBackgroundColor">
+            </field>
+
+            <field type="color" width="12" group="socialstyle" label="JDB_BORDER_COLOR" name="slBorderHoverColor">
+            </field>
+
+            <field type="spacer" group="socialstyle" />
+
+            <field type="slider" group="socialstyle" label="JDB_TEAM_ICON_SIZE" name="iconSize" unit="px" showon="params.slDisplay!='title-only'" default="16" responsive="true">
+            </field>
+
+            <field type="slider" group="socialstyle" label="JDB_SPACE_BETWEEN" name="slSpaceBetween" unit="px" default="5" responsive="true">
+            </field>
+
+            <field type="spacer" group="socialstyle" />
+
+            <field type="list" name="slBorderStyle" label="JDB_BORDER_STYLE_LABEL" default="none" group="socialstyle" search="true">
+               <option value="none">JDB_BORDER_NONE</option>
+               <option value="dotted">JDB_BORDER_DOTTED</option>
+               <option value="dashed">JDB_BORDER_DASHED</option>
+               <option value="solid">JDB_BORDER_SOLID</option>
+               <option value="double">JDB_BORDER_DOUBLE</option>
+               <option value="groove">JDB_BORDER_GROOVE</option>
+            </field>
+
+            <field type="spacing" name="slBorderWidth" label="JDB_BORDER_WIDTH" group="socialstyle" showon="params.slBorderStyle!='none'" default='{"unit":"px","lock":1,"top":1,"left":1,"right":1,"bottom":1}' units="px,%,em" responsive="true">
+            </field>
+
+            <field type="spacer" group="socialstyle" showon="params.slBorderStyle!='none'" />
+
+            <field type="spacing" name="slBorderRadius" label="JDB_BORDER_RADIUS" group="socialstyle" default='{"unit":"px","lock":1,"top":0,"left":0,"right":0,"bottom":0}' corners="true" units="px,%,em" responsive="true"></field>
+
+            <field type="boxshadow" name="slBoxShadow" label="JDB_BOX_SHADOW" group="socialstyle"></field>
+
+            <field type="hover-animations" group="socialstyle" name="slHoverAnimation" label="JDB_HOVER_ANIMATION_LABEL" search="true">
+            </field>
+            <!-- Social Links Styling End -->
+         </fieldset>
+      </fields>
+   </form>
+</element>

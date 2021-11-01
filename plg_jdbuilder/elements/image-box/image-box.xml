@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="image-box">
+   <title>Image Box</title>
+   <icon>media/jdbuilder/images/icons/elements/image-box.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/image-box-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <!--  Element Options -->
+            <field type="group" name="imagestyle" label="JDB_IMAGEBOX_IMAGE_STYLING" ordering="3"></field>
+            <field type="group" name="titlestyle" label="JDB_IMAGEBOX_TITLE_STYLING" ordering="4"></field>
+            <field type="group" name="descstyle" label="JDB_IMAGEBOX_DESCRIPTION_STYLING" ordering="5"></field>
+            <field type="group" name="buttonstyle" label="JDB_IMAGEBOX_BUTTON_STYLING" ordering="6"></field>
+            <field type="group" name="background" label="JDB_IMAGEBOX_BOX_BACKGROUND" replace="true" from="design" ordering="7"></field>
+            <field type="group" name="backgroundOverlay" label="JDB_IMAGEBOX_BOX_BACKGROUND_OVERLAY" replace="true" from="design" ordering="8"></field>
+            <field type="group" name="border" label="JDB_IMAGEBOX_BOX_BORDER" replace="true" from="design" ordering="9"></field>
+            <field type="group" name="spacing" label="JDB_IMAGEBOX_BOX_SPACING" replace="true" from="design" ordering="10"></field>
+            <field type="group" name="boxstyle" label="JDB_IMAGEBOX_BOX_HOVER_OPTIONS" ordering="11"></field>
+
+            <field name="image" type="image" group="basic" label="JDB_CHOOSE_IMAGE" default="link:https://www.joomdev.com/images/jdbuilder/jd-placeholder-800x500.jpg">
+            </field>
+            <field name="altText" type="text" group="basic" label="JDB_IMAGEBOX_IMAGE_ALT_TEXT">
+            </field>
+            <field type="text" name="title" default="Image Box" label="JDB_TITLE" group="basic">
+            </field>
+            <field type="list" name="titleHtmlTag" label="JDB_IMAGEBOX_TITLE_TAG" group="basic" default="h3">
+               <option value="h1">JDB_H1</option>
+               <option value="h2">JDB_H2</option>
+               <option value="h3">JDB_H3</option>
+               <option value="h4">JDB_H4</option>
+               <option value="h5">JDB_H5</option>
+               <option value="h6">JDB_H6</option>
+               <option value="figcaption">JDB_FIGCAPTION</option>
+            </field>
+            <field type="editor" name="description" label="JDB_ELEMENT_DESCRIPTION_LBL" group="basic" default="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus impedit blanditiis veniam eligendi cumque est beatae, cupiditate nulla obcaecati excepturi.">
+            </field>
+            <field name="link" type="text" label="JDB_LINK_LABEL" default="#" group="basic">
+            </field>
+            <field name="linkTargetBlank" type="switch" label="JDB_LINK_TARGET_LBL" default="false" showon="params.link!=''" group="basic">
+            </field>
+            <field name="linkNoFollow" type="switch" label="JDB_LINK_NOFOLLOW_LBL" default="false" showon="params.link!=''" group="basic">
+            </field>
+            <field type="list" name="linkOn" label="JDB_APPLY_LINK_ON" group="basic" search="false" default="button" showon="params.link!=''">
+               <option value="image">JDB_IMAGE</option>
+               <option value="title">JDB_TITLE</option>
+               <option value="both-image-and-title">JDB_IMAGEBOX_LINK_BOTH</option>
+               <option value="full-box">JDB_IMAGEBOX_LINK_FULLBOX</option>
+               <option value="button">JDB_BUTTON</option>
+            </field>
+
+            <field type="text" name="buttonText" label="JDB_BUTTON" default="Read More" showon="params.link!=''[AND](params.linkOn=='button'[OR]params.linkOn=='full-box')" group="basic">
+            </field>
+
+            <!-- Image Styling -->
+            <field name="imageWidth" type="slider" label="JDB_WIDTH" default='{"value":100, "unit": "%"}' min="0" max="2000" units="px,%" group="imagestyle" responsive="true">
+            </field>
+            <field type="spacing" name="imageBorderRadius" label="JDB_BORDER_RADIUS" group="imagestyle" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' corners="true" units="px,%,em" responsive="true">
+            </field>
+            <field type="list" name="imageBorderStyle" label="JDB_BORDER_TYPE" default="none" group="imagestyle" search="true">
+               <option value="none">JDB_BORDER_NONE</option>
+               <option value="dotted">JDB_BORDER_DOTTED</option>
+               <option value="dashed">JDB_BORDER_DASHED</option>
+               <option value="solid">JDB_BORDER_SOLID</option>
+               <option value="double">JDB_BORDER_DOUBLE</option>
+               <option value="groove">JDB_BORDER_GROOVE</option>
+            </field>
+            <field type="spacing" name="imageBorderWidth" label="JDB_BORDER_WIDTH" group="imagestyle" showon="params.imageBorderStyle!='none'" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' units="px,%,em" responsive="true">
+            </field>
+            <field type="color" name="imageBorderColor" label="JDB_BORDER_COLOR" group="imagestyle" showon="params.imageBorderStyle!='none'" default="">
+            </field>
+            <field type="boxshadow" name="imageBoxShadow" label="JDB_BOX_SHADOW" group="imagestyle" default="" responsive="true">
+            </field>
+            <!-- Image Styling End -->
+
+            <field type="slider" name="titleSpacing" label="JDB_SPACING" min="0" max="200" unit="px" default="20" group="titlestyle">
+            </field>
+
+            <field type="color" name="titleColor" label="JDB_COLOR" default="" group="titlestyle">
+            </field>
+
+            <field type="typography" name="titleTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"center", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="titlestyle">
+            </field>
+
+            <field type="slider" name="descSpacing" label="JDB_SPACING" min="0" max="200" unit="px" default="20" group="descstyle">
+            </field>
+
+            <field type="color" name="descColor" label="JDB_COLOR" default="" group="descstyle">
+            </field>
+
+            <field type="typography" name="descTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"center", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="descstyle">
+            </field>
+
+            <field type="slider" name="buttonSpacing" label="JDB_IMAGEBOX_BUTTON_SPACING" min="0" max="200" unit="px" default="20" group="buttonstyle">
+            </field>
+
+            <field type="list" name="buttonAlignment" label="JDB_ALIGNMENT" default="center" group="buttonstyle" responsive="true" search="false">
+               <option value="left">JDB_LEFT</option>
+               <option value="right">JDB_RIGHT</option>
+               <option value="center">JDB_CENTER</option>
+               <option value="block">JDB_BLOCK</option>
+            </field>
+
+            <!-- Button Style -->
+            <field name="buttonTextColor" type="color" label="JDB_TEXT_COLOR" default="#464ed2" group="buttonstyle" width="6">
+            </field>
+
+            <field name="buttonBackgroundColor" type="color" label="JDB_BACKGROUND_COLOR" default="" group="buttonstyle" width="6">
+            </field>
+            <field name="buttonBorderColor" type="color" label="JDB_BORDER_COLOR" default="" group="buttonstyle">
+            </field>
+            <field type="gradient" label="JDB_GRADIENT" name="buttonGradient" group="buttonstyle">
+            </field>
+            <field type="spacer" label="JDB_HOVER_OPTIONS_DIVIDER" group="buttonstyle">
+            </field>
+            <field name="buttonTextColorHover" type="color" label="JDB_TEXT_COLOR" default="" group="buttonstyle" width="6">
+            </field>
+            <field name="buttonBackgroundColorHover" type="color" label="JDB_BACKGROUND_COLOR" default="" group="buttonstyle" width="6">
+            </field>
+            <field name="buttonBorderColorHover" type="color" label="JDB_BORDER_COLOR" default="" group="buttonstyle">
+            </field>
+            <field type="gradient" label="JDB_GRADIENT" name="buttonGradientHover" group="buttonstyle">
+            </field>
+            <field type="spacer" group="buttonstyle">
+            </field>
+            <field name="buttonPadding" type="spacing" label="JDB_BUTTON_PADDING_LBL" group="buttonstyle" default='{"unit":"px","top":10,"lock":1,"left":10,"right":10,"bottom":10}' responsive="true">
+            </field>
+            
+            <field name="buttonTypography" type="typography" label="JDB_TYPOGRAPHY" group="buttonstyle" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"center", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true">
+            </field>
+            <field type="list" name="buttonBorderStyle" label="JDB_BORDER_TYPE" default="solid" group="buttonstyle">
+               <option value="none">JDB_BORDER_NONE</option>
+               <option value="solid">JDB_BORDER_SOLID</option>
+               <option value="dashed">JDB_BORDER_DASHED</option>
+               <option value="dotted">JDB_BORDER_DOTTED</option>
+               <option value="double">JDB_BORDER_DOUBLE</option>
+            </field>
+
+            <field type="spacing" name="buttonBorderWidth" label="JDB_BORDER_WIDTH" showon="params.buttonBorderStyle!='none'" default='{"unit":"px","lock":1,"top":1,"left":1,"right":1,"bottom":1}' group="buttonstyle" responsive="true">
+            </field>
+
+            <field type="spacing" name="buttonBorderRadius" label="JDB_BUTTON_RADIUS" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' group="buttonstyle" corners="true" responsive="true">
+            </field>
+            <field type="boxshadow" name="buttonBoxShadow" label="JDB_BUTTON_SHADOW" default="" group="buttonstyle">
+            </field>
+            <!-- box styling -->
+            <!--  Background Options -->
+            <field type="fieldsgroup" name="boxHoverBackground" filename="background" group="boxstyle">
+            </field>
+            <field type="fieldsgroup" name="boxHoverBorder" filename="border" group="boxstyle">
+            </field>
+            <!-- box styling ends -->
+         </fieldset>
+      </fields>
+   </form>
+</element>

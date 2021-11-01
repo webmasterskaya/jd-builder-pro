@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="attribs">
+        <fieldset name="basic">
+            <field type="hidden" name="jdbuilder_layout_id" default="0">
+            </field>
+            <field type="hidden" name="jdbuilder_layout_enabled" default="0">
+            </field>
+        </fieldset>
+    </fields>
+</form>

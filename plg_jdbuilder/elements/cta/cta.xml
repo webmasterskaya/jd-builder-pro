@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="cta">
+   <title>CTA</title>
+   <icon>media/jdbuilder/images/icons/elements/cta.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/call-to-action-cta-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <field type="group" name="boxstyling" label="JDB_CTA_STYLING" ordering="2"></field>
+            <field type="group" name="titlestyling" label="JDB_CTA_TITLE_STYLING" ordering="3"></field>
+            <field type="group" name="descstyling" label="JDB_CTA_DESCRIPTION_STYLING" ordering="4"></field>
+            <field type="group" name="buttonOptions" showon="params.buttonText!=''" label="JDB_BUTTON_OPTIONS" ordering="5"></field>
+            <field type="group" name="ribbonstyling" label="JDB_CTA_RIBBON_STYLING" ordering="7"></field>
+            <field type="group" name="background" label="JDB_CTA_BACKGROUND" replace="true" from="design" ordering="10"></field>
+            <field type="group" name="backgroundOverlay" label="JDB_CTA_BACKGROUND_OVERLAY" replace="true" from="design" ordering="11"></field>
+            <field type="group" name="border" label="JDB_CTA_BORDER" replace="true" from="design" ordering="12"></field>
+            <field type="group" name="spacing" label="JDB_CTA_SPACING" replace="true" from="design" ordering="13"></field>
+            <field type="group" name="hoveroptions" label="JDB_CTA_HOVER_OPTIONS" ordering="14"></field>
+
+            <!-- content starts -->
+            <field type="text" name="title" default="Your Text Here" label="JDB_TITLE" group="basic">
+            </field>
+
+            <field type="list" name="titleHtmlTag" label="JDB_HTML_TAG" group="basic" default="h4">
+               <option value="h1">JDB_H1</option>
+               <option value="h2">JDB_H2</option>
+               <option value="h3">JDB_H3</option>
+               <option value="h4">JDB_H4</option>
+               <option value="h5">JDB_H5</option>
+               <option value="h6">JDB_H6</option>
+            </field>
+
+            <field type="editor" name="description" label="JDB_CTA_DESCRIPTION" group="basic" default="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus impedit blanditiis veniam eligendi cumque est beatae, cupiditate nulla obcaecati excepturi.">
+            </field>
+
+            <field type="text" name="buttonText" label="JDB_BUTTON_TEXT" default="Click here" group="basic">
+            </field>
+
+            <field name="link" showon="params.buttonText!=''" type="text" label="JDB_LINK_LABEL" default="" group="basic">
+            </field>
+
+            <field name="linkTargetBlank" type="switch" label="JDB_LINK_TARGET_LBL" default="false" showon="params.link!=''[AND]params.buttonText!=''" group="basic">
+            </field>
+
+            <field name="linkNoFollow" type="switch" label="JDB_LINK_NOFOLLOW_LBL" default="false" showon="params.link!=''[AND]params.buttonText!=''" group="basic">
+            </field>
+
+            <field type="spacer" label="JDB_CTA_RIBBON_DIVIDER" group="basic">
+            </field>
+
+            <field type="text" name="ribbonText" label="JDB_CTA_RIBBON_TEXT" default="Call-to-Action" group="basic">
+            </field>
+
+            <!-- Content ends -->
+
+            <!-- Styling starts -->
+            <field type="slider" name="minHeight" label="JDB_MIN_HEIGHT" default="" max="800" units="px,vh" group="boxstyling" responsive="true">
+            </field>
+
+            <field type="list" name="verticalPosition" label="JDB_VERTICAL_POSITION_LABEL" default="justify-content-center" group="boxstyling">
+               <option value="">JDB_INHERIT</option>
+               <option value="justify-content-start">JDB_JUSTIFY_CONTENT_START</option>
+               <option value="justify-content-center">JDB_JUSTIFY_CONTENT_CENTER</option>
+               <option value="justify-content-end">JDB_JUSTIFY_CONTENT_END</option>
+               <option value="justify-content-around">JDB_JUSTIFY_CONTENT_AROUND</option>
+               <option value="justify-content-between">JDB_JUSTIFY_CONTENT_BETWEEN</option>
+            </field>
+
+            <field type="list" name="contentAlignment" label="JDB_ALIGNMENT" default="center" group="boxstyling" search="false">
+               <option value="">JDB_INHERIT</option>
+               <option value="left">JDB_LEFT</option>
+               <option value="right">JDB_RIGHT</option>
+               <option value="center">JDB_CENTER</option>
+            </field>
+
+            <!-- Title styling -->
+
+            <field type="typography" name="titleTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="titlestyling">
+            </field>
+
+            <field type="color" name="titleColor" label="JDB_COLOR" default="" group="titlestyling" width="6">
+            </field>
+
+            <field type="color" name="titleHoverColor" label="JDB_HOVER_COLOR" default="" group="titlestyling" width="6">
+            </field>
+
+            <field type="slider" name="titleSpacing" label="JDB_SPACING" min="0" max="200" unit="px" default="20" responsive="true" group="titlestyling">
+            </field>
+
+            <!-- Description styling -->
+
+            <field type="typography" name="descriptionTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="descstyling">
+            </field>
+
+            <field type="color" name="descriptionColor" label="JDB_COLOR" default="" group="descstyling" width="6">
+            </field>
+
+            <field type="color" name="descriptionHoverColor" label="JDB_HOVER_COLOR" default="" group="descstyling" width="6">
+            </field>
+
+            <field type="slider" name="descriptionSpacing" responsive="true" label="JDB_SPACING" min="0" max="200" unit="px" default="20" group="descstyling">
+            </field>
+
+            <!-- Ribbon Styling -->
+            <field type="alert" label="warning" description="JDB_CTA_RIBBON_MESSAGE" showon="params.ribbonText==''" group="ribbonstyling"></field>
+
+            <field type="radio" name="ribbonPosition" label="JDB_CTA_RIBBON_POSITION" radiotype="buttons" showon="params.ribbonText!=''" default="right" group="ribbonstyling">
+               <option value="left">JDB_LEFT</option>
+               <option value="right">JDB_RIGHT</option>
+            </field>
+
+            <field type="color" name="ribbonColor" label="JDB_COLOR" group="ribbonstyling" default="" showon="params.ribbonText!=''" width="6">
+            </field>
+
+            <field type="color" name="ribbonBackground" label="JDB_BACKGROUND" default="" group="ribbonstyling" showon="params.ribbonText!=''" width="6">
+            </field>
+
+            <field type="slider" name="ribbonDistance" label="JDB_CTA_RIBBON_DISTANCE" default='{"value":50,"unit":"px"}' max="150" min="50" unit="px" group="ribbonstyling" showon="params.ribbonText!=''" responsive="true">
+            </field>
+
+            <field type="typography" name="ribbonTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" showon="params.ribbonText!=''" group="ribbonstyling">
+            </field>
+
+            <!-- Button Styling -->
+            <field type="fieldsgroup" showon="params.buttonText!=''" name="button" filename="button" group="buttonOptions">
+               <property name="alignment" default="center"></property>
+            </field>
+            <!-- styling end -->
+
+            <!--  Border Options -->
+            <field type="fieldsgroup" name="border" filename="border" group="border">
+               <property name="style" default="solid"></property>
+               <property name="color" default="#000000"></property>
+               <property name="width" default='{"unit":"px","top":1,"lock":1,"left":1,"right":1,"bottom":1}'></property>
+            </field>
+
+            <!--  Background Options -->
+            <field type="radio" name="background" label="JDB_BLANK_LABEL" default="color" group="background" radiotype="buttons">
+               <option value="none">JDB_NONE</option>
+               <option value="color">JDB_COLOR</option>
+               <option value="gradient">JDB_BACKGROUND_GRADIENT</option>
+               <option value="image">JDB_BACKGROUND_IMAGE</option>
+               <option value="video">JDB_BACKGROUND_VIDEO</option>
+            </field>
+
+            <!--  Background Color -->
+            <field type="color" name="backgroundColor" label="JDB_BACKGROUND_COLOR" group="background" showon="params.background=='color'[OR]params.background=='image'" default="#FBFBFB">
+            </field>
+
+            <field type="fieldsgroup" name="ctaHoverBackground" filename="background" group="hoveroptions">
+            </field>
+            <field type="fieldsgroup" name="ctaHoverBorder" filename="border" group="hoveroptions">
+            </field>
+
+         </fieldset>
+      </fields>
+   </form>
+</element>

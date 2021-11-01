@@ -1,0 +1,15 @@
+{{#inline}}
+<div class="jdb-col">
+{{/inline}}
+    {{#field.options}}
+    <div class="jdb-form-check{{#field.optionsinline}} jdb-form-check-inline{{/field.optionsinline}}">
+        <input id="{{id}}" name="{{ field.name }}" type="radio"{{#field.required}} required="required"{{/field.required}} value="{{value}}" class="jdb-form-check-input" data-parsley-errors-container="#{{ field.id }}-errors">
+        <label class="jdb-form-check-label" for="{{id}}">
+            {{value}}
+        </label>
+    </div>
+    {{/field.options}}
+{{#inline}}
+</div>
+{{/inline}}
+<div id="{{ field.id }}-errors"></div>

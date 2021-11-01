@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="animated-heading">
+   <title>Animated Heading</title>
+   <icon>media/jdbuilder/images/icons/elements/animated-heading.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/animated-heading/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <field type="group" ordering="1" name="content" label="JDB_ANIMATED_HEADING_CONTENT_LABEL"></field>
+            <field type="group" ordering="2" name="headingtypography" label="JDB_ANIMATED_HEADING_OPTIONS_LABEL"></field>
+            <!--  Element Options -->
+            <field name="before" type="text" label="JDB_ANIMATED_HEADING_BEFORE_TEXT" default="JD Builder is" group="content">
+            </field>
+
+            <field
+               name="texts"
+               label="JDB_ANIMATED_HEADING_ANIMATED_TEXT"
+               type="repeatable"
+               group="content"
+               item-title="Text"
+               item-title-field="text"
+               default='[{"text":"Scalable"},{"text":"Flexible"},{"text":"Powerful"}]'
+            >
+               <form>
+                  <field
+                     type="text"
+                     label="JDB_ANIMATED_HEADING_TEXT"
+                     name="text"
+                     default=""
+                  >
+                  </field>
+               </form>
+            </field>
+
+            <field name="after" type="text" label="JDB_ANIMATED_HEADING_AFTER_TEXT" default="Framework" group="content">
+            </field>
+
+            <field name="rotatingAnimation" type="list" label="JDB_ANIMATED_HEADING_ANIMATION_TYPE" default="letters type" group="content">
+               <option value="clip">JDB_ANIMATION_CLIP</option>
+               <option value="loading-bar">JDB_ANIMATION_LOADING_BAR</option>
+               <option value="push">JDB_ANIMATION_PUSH</option>
+               <option value="rotate-1">JDB_ANIMATION_ROTATE_1</option>
+               <option value="letters rotate-2">JDB_ANIMATION_ROTATE_2</option>
+               <option value="letters rotate-3">JDB_ANIMATION_ROTATE_3</option>
+               <option value="letters scale">JDB_ANIMATION_SCALE</option>
+               <option value="slide">JDB_ANIMATION_SLIDE</option>
+               <option value="letters type">JDB_ANIMATION_TYPING</option>
+               <option value="zoom">JDB_ANIMATION_ZOOM</option>
+            </field>
+
+            <field name="headingAlignment" type="radio" label="JDB_TEXT_ALIGN" default="" radiotype="buttons" icononly="true" group="content" responsive="true">
+               <option value="">JDB_DEFAULT</option>
+               <option value="left" icon="fa fa-align-left">JDB_LEFT</option>
+               <option value="center" icon="fa fa-align-center">JDB_CENTER</option>
+               <option value="right" icon="fa fa-align-right">JDB_RIGHT</option>
+               <option value="justify" icon="fa fa-align-justify">JDB_JUSTIFY</option>
+            </field>
+
+            <field name="link" type="text" label="JDB_LINK_LABEL" default="" group="content" placeholder="Link">
+            </field>
+
+            <field name="linkTargetBlank" type="switch" label="JDB_LINK_TARGET_LBL" default="false" showon="params.link!=''" group="content">
+            </field>
+
+            <field name="linkNoFollow" type="switch" label="JDB_LINK_NOFOLLOW_LBL" default="false" showon="params.link!=''" group="content">
+            </field>
+
+            <field name="headingHtmlTag" type="list" label="JDB_HTML_TAG" default="h3" group="headingtypography">
+               <option value="h1">JDB_H1</option>
+               <option value="h2">JDB_H2</option>
+               <option value="h3">JDB_H3</option>
+               <option value="h4">JDB_H4</option>
+               <option value="h5">JDB_H5</option>
+               <option value="h6">JDB_H6</option>
+               <option value="p">JDB_P</option>
+               <option value="span">JDB_SPAN</option>
+               <option value="small">JDB_SMALL</option>
+            </field>
+
+            <field type="color" name="headingFontColor" label="JDB_ANIMATED_HEADING_TEXT_COLOR" default="" group="headingtypography">
+            </field>
+            
+            <field type="textshadow" name="headingTextShadow" label="JDB_ANIMATED_HEADING_TEXT_SHADOW" default="" group="headingtypography">
+            </field>
+
+            <field type="typography" responsive="true" name="headingTypography" label="JDB_ELEMENT_TYPOGRAPHY_LBL" default="" group="headingtypography">
+            </field>
+
+            <field type="spacer" label="JDB_ANIMATED_HEADING_ANIMATED_TEXT_SEP" group="headingtypography">
+            </field>
+
+            <field type="color" name="animatedTextColor" label="JDB_ANIMATED_HEADING_TEXT_COLOR" default="" group="headingtypography">
+            </field>
+
+            <field type="typography" responsive="true" name="animatedTextTypography" label="JDB_ELEMENT_TYPOGRAPHY_LBL" default="" group="headingtypography">
+            </field>
+         </fieldset>
+      </fields>
+   </form>
+</element>

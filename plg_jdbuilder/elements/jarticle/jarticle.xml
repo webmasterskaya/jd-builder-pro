@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="jarticle">
+   <title>Joomla Article</title>
+   <icon>media/jdbuilder/images/icons/elements/jarticle.svg</icon>
+   <creationDate>May 2020</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description></description>
+   <documentation>https://docs.joomdev.com/article/joomla-article-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <field type="group" name="metaOptions" label="JDB_JARTICLE_META_INFO"></field>
+            <field type="group" name="titleOptions" label="JDB_JARTICLE_TITLE_STYLING" showon="params.showTitle"></field>
+            <field type="group" name="contentOptions" label="JDB_JARTICLE_CONTENT_STYLING"></field>
+            <field type="group" name="tagOptions" label="JDB_JARTICLE_TAGS_STYLING" showon="params.showTags"></field>
+
+            <!-- General Options -->
+            <field type="article" name="articleId" label="JDB_JARTICLE_SELECT_ARTICLE" description="" group="basic">
+            </field>
+            <field type="spacer" name="articleLayout" label="JDB_JARTICLE_LAYOUT_SPACER" group="basic">
+            </field>
+            <field name="showTitle" type="switch" label="JDB_JARTICLE_SHOW_TITLE" default="true" group="basic">
+            </field>
+            <field name="showImage" type="switch" label="JDB_JARTICLE_SHOW_FULL_ARTICLE_IMAGE" default="true" group="basic">
+            </field>
+            <field type="radio" name="imagePosition" label="JDB_JARTICLE_IMAGE_POSITION" default="above" radiotype="buttons" showon="params.showTitle[AND]params.showImage" group="basic">
+               <option value="above">JDB_JARTICLE_ABOVE_TITLE</option>
+               <option value="below">JDB_JARTICLE_BELOW_TITLE</option>
+            </field>
+            <field name="showTags" type="switch" label="JDB_JARTICLE_SHOW_TAGS" default="true" group="basic">
+            </field>
+            <!-- General Options -->
+
+            <!-- Meta Options -->
+            <field name="articleMetaData" type="list" label="JDB_JARTICLE_META_DATA" default='["author","publish-date","category"]' group="metaOptions" multiple="true">
+               <option value="author">JDB_JARTICLE_AUTHOR</option>
+               <option value="publish-date">JDB_JARTICLE_PUBLISH_DATE</option>
+               <option value="modified-date">JDB_JARTICLE_MODIFIED_DATE</option>
+               <option value="created-date">JDB_JARTICLE_CREATED_DATE</option>
+               <option value="category">JDB_CATEGORY</option>
+               <option value="hits">JDB_JARTICLE_HITS</option>
+            </field>
+
+            <field type="radio" name="metaPosition" label="JDB_JARTICLE_META_POSITION" default="below" radiotype="buttons" group="metaOptions">
+               <option value="above">JDB_JARTICLE_META_ABOVE_TITLE</option>
+               <option value="below">JDB_JARTICLE_META_BELOW_TITLE</option>
+            </field>
+
+            <field type="text" showon="params.articleMetaData.indexOf('publish-date')>-1[OR]params.articleMetaData.indexOf('modified-date')>-1[OR]params.articleMetaData.indexOf('created-date')>-1" name="metaDateFormat" placeholder="d M, Y" default="" label="JDB_JARTICLE_DATE_FORMAT" description="JD_JARTICLE_DATE_FORMAT_DESC" group="metaOptions">
+            </field>
+
+            <field showon="params.articleMetaData.length>0" name="articleMetaIcons" type="switch" label="JDB_JARTICLE_SHOW_META_ICONS" group="metaOptions" default="true">
+            </field>
+
+            <field type="spacer" label="JDB_JARTICLE_META_STYLING" description="" group="metaOptions" />
+            <field type="color" name="metaColor" label="JDB_TEXT_COLOR" default="" group="metaOptions" />
+            <field type="color" name="metaIconColor" label="JDB_ICON_COLOR_LABEL" default="" group="metaOptions" />
+            <field type="slider" name="metaSpacing" label="JDB_SPACING" min="0" max="200" unit="px" default="" responsive="true" group="metaOptions">
+            </field>
+            <field name="metaMargin" type="spacing" label="JDB_MARGIN" group="metaOptions" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' responsive="true">
+            </field>
+            <field type="typography" name="metaTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="metaOptions">
+            </field>
+            <!-- Meta Options -->
+
+            <!-- Title Styling -->
+            <field name="titleHtmlTag" type="list" label="JDB_HTML_TAG" default="h3" group="titleOptions">
+               <option value="h1">JDB_H1</option>
+               <option value="h2">JDB_H2</option>
+               <option value="h3">JDB_H3</option>
+               <option value="h4">JDB_H4</option>
+               <option value="h5">JDB_H5</option>
+               <option value="h6">JDB_H6</option>
+               <option value="p">JDB_P</option>
+               <option value="span">JDB_SPAN</option>
+               <option value="small">JDB_SMALL</option>
+            </field>
+            <field type="color" name="titleColor" label="JDB_COLOR" default="" group="titleOptions">
+            </field>
+            <field type="typography" name="titleTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="titleOptions">
+            </field>
+            <field type="spacing" name="titleMargin" label="JDB_MARGIN" group="titleOptions" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' responsive="true">
+            </field>
+            <!-- Title Styling -->
+
+            <!-- Content Styling -->
+            <field type="color" name="contentColor" label="JDB_COLOR" default="" group="contentOptions">
+            </field>
+            <field type="typography" name="contentTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="contentOptions">
+            </field>
+            <field type="spacing" name="contentMargin" label="JDB_MARGIN" group="contentOptions" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' responsive="true">
+            </field>
+            <!-- Content Styling -->
+
+            <!-- Tag Styling -->
+            <field type="spacer" name="tagNormalStyling" label="JDB_JARTICLE_TAG_NORMAL_STYLING_SPACER" group="tagOptions" showon="params.showTags">
+            </field>
+
+            <field type="color" name="tagColor" width="6" label="JDB_TEXT_COLOR" default="" group="tagOptions" showon="params.showTags">
+            </field>
+
+            <field type="color" name="tagBackgroundColor" width="6" label="JDB_BACKGROUND_COLOR" default="" group="tagOptions" showon="params.showTags">
+            </field>
+
+            <field name="tagTypography" type="typography" label="JDB_TYPOGRAPHY" default="" group="tagOptions" showon="params.showTags" responsive="true">
+            </field>
+
+            <field type="spacing" name="tagPadding" label="JDB_PADDING" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' group="tagOptions" showon="params.showTags" responsive="true" />
+
+            <field type="slider" name="tagSpacing" label="JDB_SPACING" min="0" max="200" unit="px" default="" responsive="true" group="tagOptions" showon="params.showTags">
+            </field>
+
+            <field type="fieldsgroup" name="tagBorder" filename="border" group="tagOptions" showon="params.showTags">
+            </field>
+
+            <field name="tagHoverStateHeading" type="spacer" label="JDB_JARTICLE_TAG_HOVER_STYLING_SPACER" group="tagOptions" showon="params.showTags"></field>
+
+            <field name="tagHoverColor" type="color" width="6" label="JDB_TEXT_COLOR" group="tagOptions" showon="params.showTags">
+            </field>
+
+            <field name="tagHoverBackground" type="color" width="6" label="JDB_BACKGROUND_COLOR" group="tagOptions" showon="params.showTags">
+            </field>
+
+            <field type="fieldsgroup" name="tagHoverBorder" filename="border" group="tagOptions" showon="params.showTags">
+            </field>
+            <!-- Tag Styling -->
+         </fieldset>
+      </fields>
+   </form>
+</element>

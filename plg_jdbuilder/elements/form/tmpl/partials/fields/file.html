@@ -1,0 +1,10 @@
+{{#inline}}
+<div class="jdb-col">
+{{/inline}}
+<div class="jdb-file-input">
+    <input id="{{ field.id }}" name="{{ field.name }}" type="file"{{#field.required}} required="required"{{/field.required}} class="{{ field.class }}" data-parsley-errors-container="#{{ field.id }}-errors"{{{field.attributes}}} />
+</div>
+{{#inline}}
+</div>
+{{/inline}}
+<div id="{{ field.id }}-errors"></div>

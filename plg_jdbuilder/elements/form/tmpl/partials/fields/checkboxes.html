@@ -1,0 +1,15 @@
+{{#inline}}
+<div class="jdb-col">
+{{/inline}}
+    {{#field.options}}
+    <div class="jdb-form-check{{#field.optionsinline}} jdb-form-check-inline{{/field.optionsinline}}">
+        <input id="{{id}}" value="{{value}}" name="{{ field.name }}[]" type="checkbox"{{#field.required}} required="required"{{/field.required}} class="jdb-form-check-input" data-parsley-errors-container="#{{ field.id }}-errors"{{{field.attributes}}} />
+        <label class="jdb-form-check-label" for="{{id}}">
+            {{value}}
+        </label>
+    </div>
+    {{/field.options}}
+{{#inline}}
+</div>
+{{/inline}}
+<div id="{{ field.id }}-errors"></div>

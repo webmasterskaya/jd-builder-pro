@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="flip-box">
+   <title>Flip Box</title>
+   <icon>media/jdbuilder/images/icons/elements/flip-box.svg</icon>
+   <creationDate>May 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/flip-box-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <field type="group" name="boxsettings" label="JDB_FLIP_BOX_SETTINGS"></field>
+            <!-- Flip Box Front  -->
+            <field type="group" name="front" label="JDB_FLIP_BOX_FRONT_BOX"></field>
+            <field type="group" name="frontcontentstyling" label="JDB_FLIP_BOX_FRONT_BOX_ICON_TITLE_DESCRIPTION"></field>
+            <field type="group" name="frontstyling" label="JDB_FLIP_BOX_FRONT_BOX_STYLING"></field>
+            <!--Flip Box Back  -->
+            <field type="group" name="back" label="JDB_FLIP_BOX_BACK_BOX"></field>
+            <field type="group" name="backcontentstyling" label="JDB_FLIP_BOX_BACK_BOX_TITLE_DESCRIPTION"></field>
+            <field type="group" name="backstyling" label="JDB_FLIP_BOX_BACK_BOX_STYLING"></field>
+            <field type="group" name="buttonOptions" showon="params.link!=''[AND]params.linkOn!='title'" label="JDB_BUTTON_OPTIONS"></field>
+
+            <!-- Front Box Settings -->
+            <field type="radio" radiotype="buttons" name="graphic" label="JDB_FLIP_BOX_BOX_GRAPHIC" default="icon" group="front">
+               <option value="none">JDB_NONE</option>
+               <option value="image">JDB_IMAGE</option>
+               <option value="icon">JDB_ICON</option>
+            </field>
+
+            <!-- Icon Options -->
+            <field name="icon" type="icon" label="JDB_ICON" default="fab fa-joomla" showon="params.graphic=='icon'" group="front">
+            </field>
+
+            <field name="iconSize" type="slider" label="JDB_FLIP_BOX_ICON_SIZE" default="64" unit="px" min="1" max="200" responsive="true" showon="params.graphic=='icon'[AND]params.icon!=''" group="front">
+            </field>
+
+            <field name="iconForeground" type="color" label="JDB_FLIP_BOX_ICON_COLOR" default="#bb2b6b" showon="params.graphic=='icon'[AND]params.icon!=''" width="6" group="frontcontentstyling">
+            </field>
+
+            <field name="iconBackground" type="color" label="JDB_FLIP_BOX_ICON_BACKGROUND" default="#ffffff" showon="params.graphic=='icon'[AND]params.icon!=''" width="6" group="frontcontentstyling">
+            </field>
+
+            <field name="iconPadding" type="spacing" label="JDB_FLIP_BOX_ICON_PADDING" default='{"unit":"px","top":10,"lock":1,"left":10,"right":10,"bottom":10}' responsive="true" showon="params.graphic=='icon'[AND]params.icon!=''" group="frontcontentstyling">
+            </field>
+
+            <field name="iconRotate" type="slider" label="JDB_FLIP_BOX_ROTATE_ICON" default="" unit="deg" min="0" max="360" responsive="true" showon="params.graphic=='icon'[AND]params.icon!=''" group="frontcontentstyling">
+            </field>
+
+
+            <field type="fieldsgroup" name="iconBorder" showon="params.graphic=='icon'[AND]params.icon!=''" filename="border" group="frontcontentstyling">
+            </field>
+            <!-- Icon End Options -->
+
+            <field type="spacer" showon="params.graphic=='icon'[AND]params.icon!=''" group="frontcontentstyling">
+            </field>
+
+            <!-- Image Options -->
+            <field name="image" type="image" label="JDB_IMAGE" default="link:https://www.joomdev.com/images/jdbuilder/jd-placeholder-800x500.jpg" showon="params.graphic=='image'" group="front">
+            </field>
+
+            <field name="imageWidth" type="slider" label="JDB_WIDTH" default='{"value":200, "unit": "px"}' min="0" max="2000" units="px,%" responsive="true" showon="params.graphic=='image'[AND]params.image!=''" group="front">
+            </field>
+            <!-- Image End Options -->
+
+
+            <!-- Title Options -->
+
+            <field type="text" name="frontTitle" default="Flip Box Front" label="JDB_TITLE" group="front">
+            </field>
+
+            <field type="slider" name="frontTitleSpacing" label="JDB_FLIP_BOX_TITLE_SPACING" min="0" max="200" unit="px" default="20" group="frontcontentstyling">
+            </field>
+
+            <field type="color" name="frontTitleColor" label="JDB_FLIP_BOX_TITLE_COLOR" default="#ffffff" group="frontcontentstyling">
+            </field>
+
+            <field type="typography" name="frontTitleTypography" label="JDB_FLIP_BOX_TITLE_TYPOGRAPHY" default='{"family":"", "size":24, "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="frontcontentstyling">
+            </field>
+
+            <!-- End Title Options -->
+            <!-- Description Options -->
+
+            <field type="editor" name="frontDescription" label="JDB_FLIP_BOX_DESCRIPTION_TEXT" default="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus impedit blanditiis veniam eligendi cumque est beatae, cupiditate nulla obcaecati excepturi." group="front">
+            </field>
+
+            <field type="spacer" group="frontcontentstyling"></field>
+
+            <field type="slider" name="frontDescriptionSpacing" label="JDB_FLIP_BOX_DESCRIPTION_SPACING" min="0" max="200" unit="px" default="20" group="frontcontentstyling">
+            </field>
+
+            <field type="color" name="frontDescriptionColor" label="JDB_FLIP_BOX_DESCRIPTION_COLOR" default="#ffffff" group="frontcontentstyling">
+            </field>
+
+            <field type="typography" name="frontDescriptionTypography" label="JDB_FLIP_BOX_DESCRIPTION_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="frontcontentstyling">
+            </field>
+            <!-- Description Options End -->
+
+            <!-- Content Alignment -->
+            <field type="radio" radiotype="buttons" name="frontHorizontalAlignment" label="JDB_FLIPBOX_CONTENT_HORIZONTAL_ALIGNMENT" default="center" group="front">
+               <option value="left">JDB_LEFT</option>
+               <option value="center">JDB_CENTER</option>
+               <option value="right">JDB_RIGHT</option>
+            </field>
+
+            <field type="radio" radiotype="buttons" name="frontVerticalAlignment" label="JDB_FLIPBOX_CONTENT_VERTICAL_ALIGNMENT" default="middle" group="front">
+               <option value="top">JDB_TOP</option>
+               <option value="middle">JDB_MIDDLE</option>
+               <option value="bottom">JDB_BOTTOM</option>
+            </field>
+
+            <field type="spacing" name="frontPadding" min="0" label="JDB_FLIP_BOX_FRONT_PADDING" group="frontstyling" default='{"unit":"px","top":10,"lock":1,"left":10,"right":10,"bottom":10}' responsive="true">
+            </field>
+
+            <field type="fieldsgroup" name="frontBackground" filename="background" group="frontstyling">
+               <property name="type" default="gradient"></property>
+               <property name="gradient" default="radial-gradient(at top left,#BB2B6B 40%,#46429F 100%)"></property>
+            </field>
+
+            <field type="fieldsgroup" name="frontBorder" filename="border" group="frontstyling">
+               <property name="style" default="none"></property>
+               <property name="shadow" default="" invisible="true"></property>
+            </field>
+
+            <!-- Front Box Settings Ends -->
+
+            <!-- Back Box Settings -->
+            <!-- Title Options -->
+
+            <!-- Back Box Settings -->
+            <field type="radio" radiotype="buttons" name="backGraphic" label="JDB_FLIP_BOX_BOX_GRAPHIC" default="icon" group="back">
+               <option value="none">JDB_NONE</option>
+               <option value="image">JDB_IMAGE</option>
+               <option value="icon">JDB_ICON</option>
+            </field>
+
+            <!-- Icon Options -->
+            <field name="backIcon" type="icon" label="JDB_ICON" default="fab fa-joomla" showon="params.backGraphic=='icon'" group="back">
+            </field>
+
+            <field name="backIconSize" type="slider" label="JDB_FLIP_BOX_ICON_SIZE" default="64" unit="px" min="1" max="200" responsive="true" showon="params.backGraphic=='icon'[AND]params.backIcon!=''" group="back">
+            </field>
+
+            <field name="backIconForeground" type="color" label="JDB_FLIP_BOX_ICON_COLOR" default="#bb2b6b" showon="params.backGraphic=='icon'[AND]params.backIcon!=''" width="6" group="backcontentstyling">
+            </field>
+
+            <field name="backIconBackground" type="color" label="JDB_FLIP_BOX_ICON_BACKGROUND" default="#ffffff" showon="params.backGraphic=='icon'[AND]params.backIcon!=''" width="6" group="backcontentstyling">
+            </field>
+
+            <field name="backIconPadding" type="spacing" label="JDB_FLIP_BOX_ICON_PADDING" default='{"unit":"px","top":10,"lock":1,"left":10,"right":10,"bottom":10}' responsive="true" showon="params.backGraphic=='icon'[AND]params.backIcon!=''" group="backcontentstyling">
+            </field>
+
+            <field name="backIconRotate" type="slider" label="JDB_FLIP_BOX_ROTATE_ICON" default="" unit="deg" min="0" max="360" responsive="true" showon="params.backGraphic=='icon'[AND]params.backIcon!=''" group="backcontentstyling">
+            </field>
+
+
+            <field type="fieldsgroup" name="backIconBorder" showon="params.backGraphic=='icon'[AND]params.backIcon!=''" filename="border" group="backcontentstyling">
+            </field>
+            <!-- Icon End Options -->
+
+            <field type="spacer" showon="params.backGraphic=='icon'[AND]params.backIcon!=''" group="backcontentstyling">
+            </field>
+
+            <!-- Image Options -->
+            <field name="backImage" type="image" label="JDB_IMAGE" default="link:https://www.joomdev.com/images/jdbuilder/jd-placeholder-800x500.jpg" showon="params.backGraphic=='image'" group="back">
+            </field>
+
+            <field name="backImageWidth" type="slider" label="JDB_WIDTH" default='{"value":200, "unit": "px"}' min="0" max="2000" units="px,%" responsive="true" showon="params.backGraphic=='image'[AND]params.backImage!=''" group="back">
+            </field>
+            <!-- Image End Options -->
+
+            <field type="text" name="backTitle" default="Flip Box Back" label="JDB_TITLE" group="back">
+            </field>
+
+            <field type="slider" name="backTitleSpacing" label="JDB_FLIP_BOX_TITLE_SPACING" min="0" max="200" unit="px" default="20" group="backcontentstyling">
+            </field>
+
+            <field type="color" name="backTitleColor" label="JDB_FLIP_BOX_TITLE_COLOR" default="#ffffff" group="backcontentstyling">
+            </field>
+
+            <field type="typography" name="backTitleTypography" label="JDB_FLIP_BOX_TITLE_TYPOGRAPHY" default='{"family":"", "size":24, "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="backcontentstyling">
+            </field>
+
+            <!-- End Title Options -->
+            <!-- Description Options -->
+
+            <field type="editor" name="backDescription" label="JDB_FLIP_BOX_DESCRIPTION_TEXT" default="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus impedit blanditiis veniam eligendi cumque est beatae, cupiditate nulla obcaecati excepturi." group="back">
+            </field>
+
+            <field type="spacer" group="backcontentstyling"></field>
+
+            <field type="slider" name="backDescriptionSpacing" label="JDB_FLIP_BOX_DESCRIPTION_SPACING" min="0" max="200" unit="px" default="20" group="backcontentstyling">
+            </field>
+
+            <field type="color" name="backDescriptionColor" label="JDB_FLIP_BOX_DESCRIPTION_COLOR" default="#ffffff" group="backcontentstyling">
+            </field>
+
+            <field type="typography" name="backDescriptionTypography" label="JDB_FLIP_BOX_DESCRIPTION_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="backcontentstyling">
+            </field>
+            <!-- Description Options End -->
+
+            <!-- Content Alignment -->
+            <field type="radio" radiotype="buttons" name="backHorizontalAlignment" label="JDB_FLIPBOX_CONTENT_HORIZONTAL_ALIGNMENT" default="center" group="back">
+               <option value="left">JDB_LEFT</option>
+               <option value="center">JDB_CENTER</option>
+               <option value="right">JDB_RIGHT</option>
+            </field>
+
+            <field type="radio" radiotype="buttons" name="backVerticalAlignment" label="JDB_FLIPBOX_CONTENT_VERTICAL_ALIGNMENT" default="middle" group="back">
+               <option value="top">JDB_TOP</option>
+               <option value="middle">JDB_MIDDLE</option>
+               <option value="bottom">JDB_BOTTOM</option>
+            </field>
+
+            <field type="spacing" name="backPadding" min="0" label="JDB_FLIP_BOX_BACK_PADDING" group="backstyling" default='{"unit":"px","top":10,"lock":1,"left":10,"right":10,"bottom":10}' responsive="true">
+            </field>
+
+            <field type="fieldsgroup" name="backBackground" filename="background" group="backstyling">
+               <property name="type" default="gradient"></property>
+               <property name="gradient" default="radial-gradient(at top left,#46429F 40%,#BB2B6B 100%)"></property>
+            </field>
+
+            <field type="fieldsgroup" name="backBorder" filename="border" group="backstyling">
+               <property name="style" default="none"></property>
+               <property name="shadow" default="" invisible="true"></property>
+            </field>
+
+            <field name="link" type="text" label="JDB_LINK_LABEL" default="#" group="back">
+            </field>
+            <field name="linkTargetBlank" type="switch" label="JDB_LINK_TARGET_LBL" default="false" group="back" showon="params.link!=''">
+            </field>
+            <field name="linkNoFollow" type="switch" label="JDB_LINK_NOFOLLOW_LBL" default="false" group="back" showon="params.link!=''">
+            </field>
+
+            <field type="list" name="linkOn" label="JDB_APPLY_LINK_ON" group="back" search="false" default="button" showon="params.link!=''">
+               <option value="title">JDB_TITLE</option>
+               <option value="button">JDB_BUTTON</option>
+               <option value="box">JDB_BOX</option>
+            </field>
+
+            <!-- Button Style -->
+            <field type="text" name="buttonText" label="JDB_BUTTON_TEXT" default="Read More" showon="params.link!=''[AND]params.linkOn!='title'" group="buttonOptions">
+            </field>
+
+            <field type="slider" name="buttonSpacing" label="JDB_FLIP_BOX_BUTTON_SPACING" min="0" max="200" unit="px" default="20" group="buttonOptions" showon="params.buttonText!=''[AND]params.link!=''[AND]params.linkOn!='title'">
+            </field>
+
+            <field type="fieldsgroup" showon="params.buttonText!=''[AND]params.link!=''[AND]params.linkOn!='title'" name="button" filename="button" group="buttonOptions">
+               <property name="alignment" default="center"></property>
+               <property name="foreground" default="#bb2b6b"></property>
+               <property name="foregroundHover" default="#bb2b6b"></property>
+               <property name="background" default="#ffffff"></property>
+               <property name="backgroundHover" default="#f2f2f2"></property>
+               <property name="borderStyle" default="none"></property>
+               <property name="borderRadius" default='{"unit":"px","lock":1,"top":0,"left":0,"right":0,"bottom":0}'></property>
+            </field>
+
+            <!-- box styling -->
+            <!-- Back Box Settings Ends -->
+
+            <field type="slider" name="height" label="JDB_HEIGHT" default='{"value":450,"unit":"px"}' max="1440" units="px,vh" group="boxsettings" responsive="true">
+            </field>
+
+            <field type="list" name="flipboxAnimation" label="JDB_ANIMATION_LABEL" group="boxsettings" default="flip">
+               <option value="flip">JDB_ANIMATION_FLIP</option>
+               <option value="slide">JDB_ANIMATION_SLIDE</option>
+               <option value="push">JDB_ANIMATION_PUSH</option>
+               <option value="zoomin">JDB_ANIMATION_ZOOM_IN</option>
+               <option value="zoomout">JDB_ANIMATION_ZOOM_OUT</option>
+               <option value="fade">JDB_ANIMATION_FADE</option>
+            </field>
+
+            <field type="list" search="false" name="flipboxDirection" label="JDB_FLIP_BOX_FLIP_DIRECTION" showon="params.flipboxAnimation=='flip'||params.flipboxAnimation=='slide'||params.flipboxAnimation=='push'" group="boxsettings" default="left">
+               <option value="left">JDB_LEFT</option>
+               <option value="right">JDB_RIGHT</option>
+               <option value="up">JDB_UP</option>
+               <option value="down">JDB_DOWN</option>
+            </field>
+         </fieldset>
+      </fields>
+   </form>
+</element>

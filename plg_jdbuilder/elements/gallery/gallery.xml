@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="gallery">
+   <title>Gallery</title>
+   <icon>media/jdbuilder/images/icons/elements/gallery.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/gallery-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <!--  Element Options -->
+            <field type="group" name="filteroptions" label="JDB_GALLERY_FILTER_OPTIONS" showon="params.layout=='masonry'">
+            </field>
+            <field type="group" name="filterstylingoptions" label="JDB_GALLERY_FILTER_STYLING_OPTIONS" showon="params.layout=='masonry'[AND]params.filters">
+            </field>
+            <field type="group" name="captionoptions" label="JDB_GALLERY_CAPTION_OPTIONS">
+            </field>
+
+            <field name="layout" type="radio" radiotype="buttons" label="JDB_GALLERY_LAYOUT" default="grid" group="basic">
+               <option value="grid">JDB_GALLERY_LAYOUT_GRID</option>
+               <option value="masonry">JDB_GALLERY_LAYOUT_MASONRY</option>
+               <option value="justify">JDB_GALLERY_LAYOUT_JUSTIFY</option>
+            </field>
+
+            <field type="repeatable" name="items" label="JDB_GALLERY_ADD_ITEM" group="basic" item-title-field="title" default='[{"image":"link:https://cdn.joomdev.com/images/jdbuilder/jd-placeholder-800x500.jpg","title":"","alt":"","caption":"","tag":""},{"image":"link:https://cdn.joomdev.com/images/jdbuilder/jd-placeholder-800x500.jpg","title":"","alt":"","caption":"","tag":""},{"image":"link:https://cdn.joomdev.com/images/jdbuilder/jd-placeholder-800x500.jpg","title":"","alt":"","caption":"","tag":""},{"image":"link:https://cdn.joomdev.com/images/jdbuilder/jd-placeholder-800x500.jpg","title":"","alt":"","caption":"","tag":""},{"image":"link:https://cdn.joomdev.com/images/jdbuilder/jd-placeholder-800x500.jpg","title":"","alt":"","caption":"","tag":""},{"image":"link:https://cdn.joomdev.com/images/jdbuilder/jd-placeholder-800x500.jpg","title":"","alt":"","caption":"","tag":""}]' item-title="Image">
+               <form>
+                  <field name="image" type="image" default="" label="JDB_GALLERY_IMAGE">
+                  </field>
+                  <field name="title" type="text" label="JDB_TITLE">
+                  </field>
+                  <field name="alt" type="text" label="JDB_ALT_TEXT">
+                  </field>
+                  <field name="caption" type="text" label="JDB_GALLERY_CAPTION">
+                  </field>
+                  <field name="tag" type="text" label="JDB_GALLERY_FILTER_TAG">
+                  </field>
+                  <!-- <field name="size" type="list" default="" label="Size (Only for Masonry)">
+                     <option value="">Default (1x)</option>
+                     <option value="2">2x</option>
+                     <option value="3">3x</option>
+                  </field> -->
+               </form>
+            </field>
+
+            <!-- Justify & Masonry Options -->
+            <field name="columnCount" type="list" label="JDB_COLUMN" default="3" showon="params.layout=='masonry'[OR]params.layout=='grid'" responsive="true" group="basic">
+               <option value="1">JDB1</option>
+               <option value="2">JDB2</option>
+               <option value="3">JDB3</option>
+               <option value="4">JDB4</option>
+               <option value="6">JDB6</option>
+               <option value="12">JDB12</option>
+            </field>
+
+            <field type="slider" changeOnSlide="false" name="rowHeight" label="JDB_GALLERY_ROW_HEIGHT" default='{"value":200,"unit":"px"}' max="500" min="50" unit="px" showon="params.layout=='justify'[OR]params.layout=='grid'" group="basic">
+            </field>
+
+            <field type="slider" changeOnSlide="false" name="gridMargin" label="JDB_MARGIN" default='{"value":2,"unit":"px"}' showon="params.layout=='masonry'[OR]params.layout=='grid'" max="50" min="0" unit="px" group="basic" responsive="true">
+            </field>
+
+            <field type="slider" changeOnSlide="false" name="gridGap" label="JDB_GALLERY_JUSTIFY_GALLERY_GAP" default='{"value":10,"unit":"px"}' showon="params.layout=='justify'" max="50" min="0" unit="px" group="basic">
+            </field>
+
+            <field name="lightbox" type="radio" radiotype="buttons" label="JDB_LIGHTBOX" default="" group="basic">
+               <option value="">JDB_DEFAULT</option>
+               <option value="1">JDB_YES</option>
+               <option value="0">JDB_NO</option>
+            </field>
+            <!-- Justify & Masonry Options Ends -->
+
+            <!-- <field name="enableLightbox" type="switch" label="JDB_ENABLE_LIGHTBOX_LABEL" description="JDB_ENABLE_LIGHTBOX_DESC" default="true" group="basic">
+            </field> -->
+
+            <!-- Filter Options Starts -->
+
+            <field type="alert" label="warning" description="JDB_GALLERY_FILTER_MESSAGE" showon="params.layout=='masonry'" group="filteroptions"></field>
+
+            <field name="filters" type="switch" label="JDB_GALLERY_CATEGORY_FILTER" default="false" group="filteroptions" showon="params.layout=='masonry'">
+            </field>
+
+            <field name="showAll" type="switch" default="true" label="JDB_SHOW_ALL" showon="params.layout=='masonry'[AND]params.filters" group="filteroptions">
+            </field>
+
+            <field name="labelAll" type="text" label="JDB_GALLERY_LABEL_FOR_ALL" default="All" showon="params.layout=='masonry'[AND]params.filters[AND]params.showAll" group="filteroptions">
+            </field>
+
+            <field name="selectedFilter" type="text" label="JDB_GALLERY_DEFAULT_FILTER" default="All" showon="params.layout=='masonry'[AND]params.filters" group="filteroptions">
+            </field>
+
+            <field name="filterAlignment" type="radio" radiotype="buttons" label="JDB_GALLERY_FILTER_ALIGNMENT" default="center" showon="params.layout=='masonry'[AND]params.filters" group="filteroptions">
+               <option value="start" icon="fa fa-align-left">JDB_LEFT</option>
+               <option value="center" icon="fa fa-align-center">JDB_CENTER</option>
+               <option value="end" icon="fa fa-align-right">JDB_RIGHT</option>
+               <option value="between" icon="fa fa-align-justify">JDB_JUSTIFY</option>
+            </field>
+            <!-- Filter Options Ends -->
+
+            <!-- Filter Styling Options -->
+            <field name="filterNormalStateHeading" type="spacer" label="Filter (Normal State)" showon="params.layout=='masonry'[AND]params.filters" group="filterstylingoptions"></field>
+
+            <field name="filterColor" type="color" label="Text Color" showon="params.layout=='masonry'[AND]params.filters" group="filterstylingoptions">
+            </field>
+
+            <field name="filterBackground" type="color" label="Background Color" showon="params.layout=='masonry'[AND]params.filters" group="filterstylingoptions">
+            </field>
+
+            <field name="filterTypography" type="typography" label="JDB_TYPOGRAPHY" default="" showon="params.layout=='masonry'[AND]params.filters" group="filterstylingoptions" responsive="true">
+            </field>
+
+            <field type="spacing" name="filterPadding" label="JDB_PADDING" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' showon="params.layout=='masonry'[AND]params.filters" group="filterstylingoptions" responsive="true" />
+
+            <field type="fieldsgroup" name="filterBorder" filename="border" group="filterstylingoptions">
+            </field>
+
+            <field name="filterHoverStateHeading" type="spacer" label="Filter (Hover State)" showon="params.layout=='masonry'[AND]params.filters" group="filterstylingoptions"></field>
+
+            <field name="filterHoverColor" type="color" label="Text Color" showon="params.layout=='masonry'[AND]params.filters" group="filterstylingoptions">
+            </field>
+
+            <field name="filterHoverBackground" type="color" label="Background Color" showon="params.layout=='masonry'[AND]params.filters" group="filterstylingoptions">
+            </field>
+
+            <field type="fieldsgroup" name="filterHoverBorder" filename="border" group="filterstylingoptions">
+            </field>
+
+            <field name="filterActiveStateHeading" type="spacer" label="Filter (Active State)" showon="params.layout=='masonry'[AND]params.filters" group="filterstylingoptions"></field>
+
+            <field name="filterActiveColor" type="color" label="Text Color" showon="params.layout=='masonry'[AND]params.filters" group="filterstylingoptions">
+            </field>
+
+            <field name="filterActiveBackground" type="color" label="Background Color" showon="params.layout=='masonry'[AND]params.filters" group="filterstylingoptions">
+            </field>
+
+            <field type="fieldsgroup" name="filterActiveBorder" filename="border" group="filterstylingoptions">
+            </field>
+            <!-- Filter Styling Options -->
+
+            <!-- Caption Starts -->
+
+            <field name="caption" type="list" label="JDB_GALLERY_SHOW_CAPTION" default="never" group="captionoptions" search="false">
+               <option value="never">JDB_GALLERY_SHOW_CAPTION_NEVER</option>
+               <option value="on-image">JDB_GALLERY_SHOW_CAPTION_ON_IMAGE</option>
+               <option value="on-hover">JDB_GALLERY_SHOW_CAPTION_ON_HOVER</option>
+            </field>
+
+            <field type="list" name="captionTag" label="JDB_GALLERY_CAPTION_TAG" default="span" showon="params.caption!='never'" group="captionoptions">
+               <option value="h1">JDB_H1</option>
+               <option value="h2">JDB_H2</option>
+               <option value="h3">JDB_H3</option>
+               <option value="h4">JDB_H4</option>
+               <option value="h5">JDB_H5</option>
+               <option value="h6">JDB_H6</option>
+               <option value="p">JDB_P</option>
+               <option value="div">JDB_DIV</option>
+               <option value="span">JDB_SPAN</option>
+            </field>
+
+            <field name="captionColor" type="color" default="#fff" label="JDB_COLOR" showon="params.caption!='never'" group="captionoptions">
+            </field>
+
+            <field name="captionBackground" type="color" label="JDB_BACKGROUND_COLOR" default="rgba(0,0,0,0.6)" showon="params.caption!='never'" group="captionoptions">
+            </field>
+
+            <field name="captionTypography" type="typography" label="JDB_TYPOGRAPHY" default="" showon="params.caption!='never'" group="captionoptions" responsive="true">
+            </field>
+
+            <field type="spacing" name="captionPadding" label="JDB_PADDING" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' showon="params.caption!='never'" responsive="true" group="captionoptions" />
+
+            <!-- Caption Ends -->
+         </fieldset>
+      </fields>
+   </form>
+</element>

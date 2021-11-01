@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="testimonial">
+   <title>Testimonial</title>
+   <icon>media/jdbuilder/images/icons/elements/testimonials.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/testimonial-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <!--  Element Options -->
+            <field type="group" name="content" label="JDB_TESTIMONIAL_CONTENT"></field>
+            <field type="group" name="navigation" label="JDB_TESTIMONIAL_NAVIGATION"></field>
+            <field type="group" name="tabstyling" label="JDB_TESTIMONIAL_STYLING"></field>
+            <field type="group" name="avatarStyling" label="JDB_TESTIMONIAL_AVATAR_STYLING"></field>
+            <field type="group" name="navigationStyling" label="JDB_TESTIMONIAL_NAVIGATION_STYLING"></field>
+            <field type="group" name="bubbleStyling" label="JDB_TESTIMONIAL_BUBBLE_STYLING"></field>
+
+            <field type="repeatable" name="testimonials" label="JDB_TESTIMONIAL_ADD_TESTIMONIAL" item-title="Testimonial" item-title-field="name" group="content" default='[{"name":"Jeff Wright", "designation":"Founder", "url": "", "content":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", "avatar": "link:http://cdn.joomdev.com/images/jdbuilder/avatar1.jpg"},{"name":"Ethel Prager", "designation":"Vice Chairman", "url": "", "content":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", "avatar": "link:http://cdn.joomdev.com/images/jdbuilder/avatar2.jpg"},{"name":"Leon Hay", "designation":"SEO Expert", "url": "", "content":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", "avatar": "link:http://cdn.joomdev.com/images/jdbuilder/avatar3.jpg"},{"name":"Amanda Ball", "designation":"Software Designer", "url": "", "content":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", "avatar": "link:http://cdn.joomdev.com/images/jdbuilder/avatar4.jpg"}]'>
+               <form>
+                  <field type="text" name="name" label="JDB_TESTIMONIAL_NAME" default="" />
+                  <field type="text" name="designation" label="JDB_TESTIMONIAL_DESIGNATION_COMPANY" default="" />
+                  <field type="text" name="url" label="JDB_TESTIMONIAL_COMPANY_URL" default="" />
+                  <field type="code-editor" language="html" name="content" label="JDB_CONTENT_LBL" default="" />
+                  <field type="image" name="avatar" label="JDB_TESTIMONIAL_AVTAR" default="" />
+               </form>
+            </field>
+            <field name="skin" type="radio" radiotype="buttons" label="JDB_TESTIMONIAL_SKIN" default="" group="content">
+               <option value="">JDB_DEFAULT</option>
+               <option value="bubble">JDB_TESTIMONIAL_BUBBLE</option>
+            </field>
+            <field type="list" name="layout" label="JDB_LAYOUT_TITLE" default="imagestacked" search="false" group="content">
+               <option value="imagestacked">JDB_TESTIMONIAL_LAYOUT_IMAGE_STACKED</option>
+               <option value="imageinline">JDB_TESTIMONIAL_LAYOUT_IMAGE_INLINE</option>
+               <option value="imageabove">JDB_TESTIMONIAL_LAYOUT_IMAGE_ABOVE</option>
+               <option value="imageleft">JDB_TESTIMONIAL_LAYOUT_IMAGE_LEFT</option>
+               <option value="imageright">JDB_TESTIMONIAL_LAYOUT_IMAGE_RIGHT</option>
+            </field>
+            <field type="radio" radiotype="buttons" name="alignment" label="JDB_ALIGNMENT" default="center" group="content">
+               <option value="left" icon="fa fa-align-left">JDB_LEFT</option>
+               <option value="center" icon="fa fa-align-center">JDB_CENTER</option>
+               <option value="right" icon="fa fa-align-right">JDB_RIGHT</option>
+            </field>
+
+            <field type="slider" name="slidesPerView" label="JDB_TESTIMONIAL_SLIDES_PER_VIEW" group="content" unit="" min="1" max="5" step="1" default="2" responsive="true">
+            </field>
+
+            <field type="switch" name="scrollInSet" label="JDB_TESTIMONIAL_SLIDE_IN_SETS" group="content" default="false">
+            </field>
+
+            <field type="switch" name="arrows" label="JDB_ELEMENT_ARROWS" default="true" group="navigation">
+            </field>
+
+            <field type="alert" label="warning" description="JDB_ELEMENT_TESTIMONIAL_PAGINATION_ALERT" group="navigation">
+            </field>
+
+            <field type="switch" name="pagination" label="JDB_TESTIMONIAL_PAGINATION" default="false" group="navigation">
+            </field>
+
+            <field type="switch" name="infinite" label="JDB_TESTIMONIAL_INFINITE_LOOP" default="true" group="navigation">
+            </field>
+
+            <field type="switch" name="draggable" label="JDB_TESTIMONIAL_DRAGGABLE" default="true" group="navigation">
+            </field>
+
+            <field type="switch" name="autoplay" label="JDB_TESTIMONIAL_AUTO_PLAY" default="true" group="navigation">
+            </field>
+
+            <field type="switch" name="pauseOnHover" label="JDB_TESTIMONIAL_PAUSE_ON_HOVER" default="true" showon="params.autoplay" group="navigation">
+            </field>
+
+            <field type="slider" name="autoplayInterval" showon="params.autoplay" label="JDB_TESTIMONIAL_AUTOPLAY_INTERVAL" description="JDB_TESTIMONIAL_AUTOPLAY_INTERVAL_DESC" default="7000" min="500" max="20000" step="100" unit="MS" group="navigation" />
+
+            <field type="slider" name="slideWidth" label="JDB_TESTIMONIAL_SLIDE_SIZE" default='{"value":100,"unit":"%"}' max="1000" min="0" units="px,%" group="tabstyling" responsive="true">
+            </field>
+
+            <field type="color" name="slideBackground" label="JDB_TESTIMONIAL_SLIDE_BACKGROUND" default="" group="tabstyling"></field>
+
+            <field type="fieldsgroup" name="slideBorder" filename="border" group="tabstyling">
+               <property name="color" default="#000000"></property>
+            </field>
+
+            <field name="slidePadding" type="spacing" label="JDB_TESTIMONIAL_SLIDE_PADDING" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' group="tabstyling" responsive="true">
+            </field>
+
+            <field type="spacer" label="JDB_TESTIMONIAL_CONTENT_STYLING_DIVIDER" group="tabstyling">
+            </field>
+
+            <field name="slideContentColor" type="color" label="JDB_TEXT_COLOR" default="" group="tabstyling">
+            </field>
+
+            <field name="slideContentTypography" type="typography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' group="tabstyling" responsive="true">
+            </field>
+
+            <field name="slideContentPadding" type="spacing" label="JDB_TESTIMONIAL_CONTENT_PADDING" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' group="tabstyling" responsive="true">
+            </field>
+
+            <field type="spacer" label="JDB_TESTIMONIAL_NAME_STYLING_DIVIDER" group="tabstyling">
+            </field>
+
+            <field name="slideNameColor" type="color" label="JDB_TEXT_COLOR" default="" group="tabstyling">
+            </field>
+
+            <field name="slideNameTypography" type="typography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":24, "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' group="tabstyling" responsive="true">
+            </field>
+
+            <field type="spacer" label="JDB_TESTIMONIAL_DESIGNATION_STYLING_DIVIDER" group="tabstyling">
+            </field>
+
+            <field name="slideDesignationColor" type="color" label="JDB_TEXT_COLOR" default="" group="tabstyling">
+            </field>
+
+            <field name="slideDesignationTypography" type="typography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":14, "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' group="tabstyling" responsive="true">
+            </field>
+
+            <field type="slider" name="avatarSize" label="JDB_TESTIMONIAL_IMAGE_WIDTH" default="" max="1000" min="40" unit="px" group="avatarStyling" responsive="true">
+            </field>
+
+            <field type="fieldsgroup" name="avatarBorder" filename="border" group="avatarStyling">
+               <property name="radius" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}'></property>
+            </field>
+
+            <field type="slider" name="arrowSize" label="JDB_TESTIMONIAL_ARROWS_SIZE" default="" max="100" min="5" unit="px" group="navigationStyling" responsive="true">
+            </field>
+
+            <field type="color" name="arrowColor" label="JDB_TESTIMONIAL_ARROWS_COLOR" group="navigationStyling"></field>
+
+            <field type="slider" name="paginationSize" label="JDB_TESTIMONIAL_PAGINATION_SIZE" default="" max="100" min="5" unit="px" group="navigationStyling" responsive="true">
+            </field>
+
+            <field type="color" name="paginationColor" label="JDB_TESTIMONIAL_PAGINATION_COLOR" default="" group="navigationStyling" width="6"></field>
+           
+            <field type="color" name="paginationActiveColor" label="JDB_ACTIVE_COLOR" default="" width="6" group="navigationStyling"></field>
+
+
+            <field type="color" name="bubbleBackground" label="JDB_BACKGROUND_COLOR" default="" group="bubbleStyling"></field>
+
+            <field name="bubblePadding" type="spacing" label="JDB_TESTIMONIAL_BUBBLE_PADDING" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' group="bubbleStyling" responsive="true">
+            </field>
+
+            <field type="fieldsgroup" name="bubbleBorder" filename="border" group="bubbleStyling">
+            </field>
+
+         </fieldset>
+      </fields>
+   </form>
+</element>

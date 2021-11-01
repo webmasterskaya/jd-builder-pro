@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="countdown">
+   <title>Countdown</title>
+   <icon>media/jdbuilder/images/icons/elements/countdown.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/countdown-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <!--  Element Options -->
+            <field type="group" name="styling" label="JDB_COUNTDOWN_STYLING"></field>
+            <field type="alert" label="warning" description="JDB_TIMEZONE_ALERT" group="basic">
+            </field>
+            <field name="date" type="date" label="JDB_COUNTDOWN_DUE_DATE" default="tomorrow" group="basic" />
+            <field name="time" type="time" label="JDB_COUNTDOWN_TIME" default='{"hours": 0, "minutes": 0}' group="basic">
+            </field>
+            <field name="viewType" type="radio" label="JDB_VIEW" default="block" radiotype="buttons" group="basic">
+               <option value="block">JDB_BLOCK</option>
+               <option value="inline">JDB_INLINE</option>
+            </field>
+            <field name="viewDays" type="switch" label="JDB_DAYS" default="true" group="basic" width="3" class="text-center">
+            </field>
+            <field name="viewHours" type="switch" label="JDB_HOURS" default="true" group="basic" width="3" class="text-center">
+            </field>
+            <field name="viewMinutes" type="switch" label="JDB_MINUTES" group="basic" width="3" default="true" class="text-center">
+            </field>
+            <field name="viewSeconds" type="switch" label="JDB_SECONDS" default="true" group="basic" width="3" class="text-center">
+            </field>
+            <field name="labelType" type="radio" label="JDB_LABEL" default="auto" radiotype="buttons" group="basic">
+               <option value="none">JDB_NONE</option>
+               <option value="auto">JDB_AUTO</option>
+               <option value="custom">JDB_CUSTOM</option>
+            </field>
+            <field name="daysLabel" type="text" label="JDB_COUNTDOWN_CUSTOM_DAYS" default="Days" showon="params.labelType=='custom'" group="basic" width="6">
+            </field>
+            <field name="hoursLabel" type="text" label="JDB_COUNTDOWN_CUSTOM_HOURS" default="Hours" showon="params.labelType=='custom'" group="basic" width="6">
+            </field>
+            <field name="minutesLabel" type="text" label="JDB_COUNTDOWN_CUSTOM_MINUTES" default="Minutes" showon="params.labelType=='custom'" group="basic" width="6">
+            </field>
+            <field name="secondsLabel" type="text" default="Seconds" label="JDB_COUNTDOWN_CUSTOM_SECONDS" showon="params.labelType=='custom'" group="basic" width="6">
+            </field>
+            <field type="spacer" showon="params.labelType=='custom'" group="basic">
+            </field>
+            <field type="list" name="onAfterExpire" label="JDB_COUNTDOWN_AFTER_EXPIRE" default="none" search="false" group="basic">
+               <option value="none">JDB_COUNTDOWN_DO_NOTHING</option>
+               <option value="hide">JDB_HIDE</option>
+               <option value="message">JDB_COUNTDOWN_SHOW_MESSAGE</option>
+               <option value="hide+message">JDB_COUNTDOWN_HIDE_SHOW_MESSAGE</option>
+            </field>
+            <field type="code-editor" name="message" language="html" label="JDB_COUNTDOWN_WRITE_MSG" default="" showon="params.onAfterExpire=='message'[OR]params.onAfterExpire=='hide+message'" group="basic">
+            </field>
+            <field name="redirect" type="text" label="JDB_REDIRECT_URL" default="" group="basic">
+            </field>
+            <field name="redirectWait" type="number" label="JDB_COUNTDOWN_WAIT_TIME" default="3000" min="0" max="10000" group="basic" showon="params.redirect!=''">
+            </field>
+
+            <!-- styling -->
+            <field type="slider" name="countdownWidth" label="JDB_CONTAINER_WIDTH" default='{"value":"","unit":"%"}' max="1600" min="10" units="px,%,em" group="styling" responsive="true">
+            </field>
+
+            <field type="color" name="countdownBackground" label="JDB_BACKGROUND_COLOR" default="" group="styling">
+            </field>
+
+            <!--  Border Options -->
+            <field type="fieldsgroup" name="countdownBorder" filename="border" group="styling">
+               <property name="style" default='solid'></property>
+               <property name="width" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}'></property>
+               <property name="color" default=''></property>
+            </field>
+
+            <field type="slider" group="styling" label="JDB_SPACE_BETWEEN" name="countdownSpace" unit="px" default="" responsive="true">
+            </field>
+
+            <field type="spacing" name="countdownPadding" min="0" label="JDB_PADDING" group="styling" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' responsive="true">
+            </field>
+
+            <field type="spacer" label="JDB_COUNTDOWN_NUMBERS_SPACER" group="styling">
+            </field>
+
+            <field type="color" name="numberColor" label="JDB_COLOR" default="" group="styling">
+            </field>
+
+            <field name="numberTypography" type="typography" label="JDB_TYPOGRAPHY" group="styling" default="" responsive="true">
+            </field>
+
+            <field type="spacer" label="JDB_LABEL_SPACER" group="styling">
+            </field>
+
+            <field type="color" name="labelColor" label="JDB_COLOR" default="" group="styling">
+            </field>
+
+            <field name="labelTypography" type="typography" label="JDB_TYPOGRAPHY" group="styling" default="" responsive="true">
+            </field>
+
+            <field type="spacer" label="JDB_COUNTDOWN_MESSAGE_SPACER" group="styling">
+            </field>
+
+            <field name="messageColor" type="color" label="JDB_COLOR" group="styling" default=''>
+            </field>
+
+            <field name="messageTypography" type="typography" label="JDB_TYPOGRAPHY" group="styling" default="" responsive="true">
+            </field>
+
+            <field type="spacing" name="messagePadding" min="0" label="JDB_PADDING" group="styling" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' responsive="true">
+            </field>
+         </fieldset>
+      </fields>
+   </form>
+</element>

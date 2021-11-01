@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="google-maps">
+   <title>Google Maps</title>
+   <icon>media/jdbuilder/images/icons/elements/g-map.svg</icon>
+   <creationDate>March 2020</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/google-map-element</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <field type="group" name="locationOptions" label="JDB_GMAP_LOCATIONS"></field>
+            <field type="group" name="mapOptions" label="JDB_GMAP_MAP_OPTIONS"></field>
+            <field type="group" name="controlsOptions" label="JDB_GMAP_MAP_CONTROLS"></field>
+            <field type="group" name="infoWindowOptions" label="JDB_GMAP_INFO_WINDOW_OPTIONS"></field>
+            <!-- Location -->
+            <field type="alert" label="warning" description="JDB_GMAP_KEY_WARNING" group="locationOptions"></field>
+            <field type="repeatable" name="locations" label="JDB_GMAP_LOCATIONS" group="locationOptions" item-title="JDB_GMAP_LOCATION" item-title-field="title" default='[{"title":"New York, NY, USA","lat":"40.7127753","lng":"-74.0059728","infoWindow":"","description":"","markerType":"default","customMarker":"","customMarkerSize":{"value":50,"unit":"#"}}]'>
+               <form>
+                  <field type="google-autocomplete" label="JDB_GMAP_SEARCH_LOCATION"></field>
+                  <field type="text" name="lat" label="JDB_GMAP_LATITUDE" width="6"></field>
+                  <field type="text" name="lng" label="JDB_GMAP_LONGITUDE" width="6"></field>
+                  <field name="title" type="text" label="JDB_GMAP_ADDRESS_TITLE" default="" showon="params.location!=''">
+                  </field>
+                  <field name="infoWindow" label="JDB_GMAP_DISPLAY_INFO_WINDOW" default="" type="radio" radiotype="buttons">
+                     <option value="">JDB_NONE</option>
+                     <option value="click">JDB_GMAP_ON_CLICK</option>
+                     <option value="onload">JDB_GMAP_ON_PAGE_LOAD</option>
+                  </field>
+                  <field name="description" type="textarea" label="JDB_GMAP_ADDRESS_DESCRIPTION" default="" showon="params.location!=''[AND]params.infoWindow">
+                  </field>
+                  <field name="markerType" label="JDB_GMAP_MARKER_ICON" default="default" type="radio" radiotype="buttons">
+                     <option value="default">JDB_DEFAULT</option>
+                     <option value="custom">JDB_CUSTOM</option>
+                  </field>
+                  <field name="customMarker" type="image" label="JDB_GMAP_SELECT_MARKER" showon="params.markerType=='custom'">
+                  </field>
+                  <field name="customMarkerSize" type="slider" changeOnSlide="false" label="JDB_GMAP_MARKER_SIZE" showon="params.markerType=='custom'[AND]params.customMarker!=''" default="50"></field>
+               </form>
+            </field>
+            <!-- Location -->
+
+            <field group="mapOptions" name="mapType" type="list" label="JDB_GMAP_MAP_TYPE" description="" default="roadmap" search="false">
+               <option value="roadmap">JDB_GMAP_ROAD_MAP</option>
+               <option value="satellite">JDB_GMAP_SATELLITE</option>
+               <option value="hybrid">JDB_GMAP_HYBRID</option>
+               <option value="terrain">JDB_GMAP_TERRAIN</option>
+            </field>
+            <field group="mapOptions" showon="params.mapType!='satellite'" name="mapTheme" type="list" label="JDB_GMAP_MAP_THEME" description="" default="">
+               <option value="">JDB_GMAP_STANDARD</option>
+               <option value="silver">JDB_GMAP_SILVER</option>
+               <option value="retro">JDB_GMAP_RETRO</option>
+               <option value="dark">JDB_GMAP_DARK</option>
+               <option value="night">JDB_GMAP_NIGHT</option>
+               <option value="aubergine">JDB_GMAP_AUBERGINE</option>
+               <option value="custom">JDB_CUSTOM</option>
+            </field>
+            <field type="alert" label="primary" description="JDB_GMAP_CUSTOM_THEME_WARNING" showon="params.mapTheme=='custom'[AND]params.mapType!='satellite'" group="mapOptions"></field>
+            <field type="code-editor" group="mapOptions" name="customTheme" label="JDB_CUSTOM_CODE" showon="params.mapTheme=='custom'" language="html" description="">
+            </field>
+            <field name="markerAnimation" label="JDB_GMAP_MARKER_ANIMATION" default="" type="radio" group="mapOptions" radiotype="buttons">
+               <option value="">JDB_NONE</option>
+               <option value="drop">JDB_ANIMATION_DROP</option>
+               <option value="bounce">JDB_ANIMATION_BOUNCE</option>
+            </field>
+            <field group="mapOptions" name="mapZoom" type="slider" changeOnSlide="false" label="JDB_GMAP_MAP_ZOOM" min="0" default="7" max="22"></field>
+            <field type="slider" name="mapHeight" label="JDB_GMAP_MAP_HEIGHT" default='{"value":400,"unit":"px"}' max="1440" units="px,vh" group="mapOptions" responsive="true">
+            </field>
+
+            <field type="switch" default="true" name="streetViewControl" group="controlsOptions" label="JDB_GMAP_STREET_VIEW_CONTROLS" description=""></field>
+            <field type="switch" default="true" name="mapTypeControl" group="controlsOptions" label="JDB_GMAP_MAP_TYPE_CONTROLS" description=""></field>
+            <field type="switch" default="true" name="scrollwheel" group="controlsOptions" label="JDB_GMAP_ZOOM_ON_SCROLL" description=""></field>
+            <field type="switch" default="true" name="zoomControl" group="controlsOptions" label="JDB_GMAP_ZOOM_CONTROL" description=""></field>
+            <field type="switch" default="true" name="fullscreenControl" group="controlsOptions" label="JDB_GMAP_FULLSCREEN_CONTROL" description=""></field>
+
+            <field type="slider" name="infoWidth" label="JDB_GMAP_MAX_WIDTH" default='300' min="100" max="800" unit="px" group="infoWindowOptions" responsive="true">
+            </field>
+
+            <field type="spacing" name="infoPadding" min="0" label="JDB_PADDING" group="infoWindowOptions" default='{"unit":"px","top":12,"lock":1,"left":12,"right":12,"bottom":12}' responsive="true">
+            </field>
+
+            <field type="color" name="infoBackgroundColor" label="JDB_BACKGROUND_COLOR" default="" group="infoWindowOptions">
+            </field>
+
+            <field type="slider" group="infoWindowOptions" label="JDB_SPACE_BETWEEN" name="infoSpaceBetween" unit="px" default="10" responsive="true">
+            </field>
+
+            <field type="spacer" group="infoWindowOptions" label="JDB_GMAP_ADDRESS_TITLE" />
+
+            <field type="color" name="infoTitleColor" label="JDB_COLOR" default="" group="infoWindowOptions">
+            </field>
+
+            <field name="infoTitleTypography" type="typography" label="JDB_TYPOGRAPHY" group="infoWindowOptions" default="" responsive="true">
+            </field>
+
+            <field type="spacer" group="infoWindowOptions" label="JDB_GMAP_ADDRESS_DESCRIPTION" />
+
+            <field type="color" name="infoDescriptionColor" label="JDB_COLOR" default="" group="infoWindowOptions">
+            </field>
+
+            <field name="infoDescriptionTypography" type="typography" label="JDB_TYPOGRAPHY" group="infoWindowOptions" default="" responsive="true">
+            </field>
+
+            <field type="spacer" group="infoWindowOptions" label="JDB_BORDER_OPTIONS_DIVIDER" />
+            <field type="fieldsgroup" name="infoBorder" filename="border" group="infoWindowOptions">
+            </field>
+         </fieldset>
+      </fields>
+   </form>
+</element>

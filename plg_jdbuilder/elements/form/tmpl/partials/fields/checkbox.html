@@ -1,0 +1,15 @@
+{{#inline}}
+<div class="jdb-col">
+{{/inline}}
+    <div class="jdb-form-check">
+        <input id="{{field.id}}" name="{{ field.name }}" type="checkbox"{{#field.required}} required="required"{{/field.required}} class="jdb-form-check-input"{{{field.attributes}}} />
+        <label class="jdb-form-check-label" for="{{field.id}}">
+            {{{ field.label }}}
+            {{#field.requiredMark}}<sup class="jdb-reuired-mark">*</sup>{{/field.requiredMark}}
+        </label>
+    </div>
+{{#inline}}
+</div>
+{{/inline}}
+
+

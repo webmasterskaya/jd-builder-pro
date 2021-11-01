@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="before-after">
+   <title>Before And After</title>
+   <icon>media/jdbuilder/images/icons/elements/before-after.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/before-after-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <!--  Element Options -->
+            <field type="group" name="styling" label="JDB_BEFORE_AFTER_STYLING_LABEL"></field>
+            <field type="group" name="handlestyling" label="JDB_BEFORE_AFTER_HANDLE_STYLING_LABEL"></field>
+
+            <field type="spacer" label="JDB_BEFORE_SPACER" group="basic">
+            </field>
+            <field name="beforeImage" type="image" label="JDB_IMAGE" default="link:http://cdn.joomdev.com/images/jdbuilder/jdb-placeholder-before.jpg" group="basic">
+            </field>
+            <field name="beforeAlt" type="text" label="JDB_BEFORE_AFTER_ALT" default="" group="basic">
+            </field>
+            <field name="beforeLabel" type="text" label="JDB_BEFORE_LABEL" default="Before" group="basic">
+            </field>
+
+            <field type="spacer" label="JDB_AFTER_SPACER" group="basic">
+            </field>
+            <field name="afterImage" type="image" label="JDB_IMAGE" default="link:http://cdn.joomdev.com/images/jdbuilder/jdb-placeholder-after.jpg" group="basic">
+            </field>
+            <field name="afterAlt" type="text" label="JDB_BEFORE_AFTER_ALT" default="" group="basic">
+            </field>
+            <field name="afterLabel" type="text" label="JDB_AFTER_LABEL" default="After" group="basic">
+            </field>
+
+            <field type="slider" name="sliderWidth" label="JDB_WIDTH" default='{"value":100,"unit":"%"}' max="1600" min="0" units="px,%,em" group="styling" responsive="true">
+            </field>
+
+            <field name="sliderAlignment" type="radio" label="JDB_ALIGNMENT" default="center" radiotype="buttons" responsive="true" group="styling">
+               <option value="left">JDB_LEFT</option>
+               <option value="center">JDB_CENTER</option>
+               <option value="right">JDB_RIGHT</option>
+            </field>
+
+            <field name="orientation" type="radio" label="JDB_ORIENTATION_LBL" default="horizontal" radiotype="buttons" group="styling">
+               <option value="horizontal">JDB_HORIZONTAL</option>
+               <option value="vertical">JDB_VERTICAL</option>
+            </field>
+
+            <field name="moveSliderOnHover" type="switch" label="JDB_MOVE_ON_HOVER" default="false" group="styling">
+            </field>
+
+            <field name="overlayDisplay" type="list" label="JDB_DISPLAY_OVERLAY" default="hover" search="false" group="styling">
+               <option value="never">JDB_DISPLAY_NEVER</option>
+               <option value="hover">JDB_DISPLAY_ON_HOVER</option>
+               <option value="always">JDB_DISPLAY_ALWAYS</option>
+            </field>
+
+            <field type="slider" name="defaultOffset" label="JDB_BEFORE_AFTER_HANDLE_OFFSET" default='{"value":70,"unit":"%"}' unit="%" max="100" min="0" step="10" group="handlestyling">
+            </field>
+
+            <field name="handleColor" type="color" label="JDB_COLOR" default="#fff" group="handlestyling">
+            </field>
+
+         </fieldset>
+      </fields>
+   </form>
+</element>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="slider">
+   <title>Slider</title>
+   <icon>media/jdbuilder/images/icons/elements/slider.svg</icon>
+   <creationDate>May 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/slider-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <field type="group" name="slides" label="JDB_SLIDER_SLIDES"></field>
+            <field type="group" name="settings" label="JDB_SLIDER_SETTINGS"></field>
+            <field type="group" name="contentStyling" label="JDB_SLIDER_CONTENT_STYLING"></field>
+            <field type="group" name="navigationStyling" label="JDB_SLIDER_NAVIGATION_STYLING"></field>
+            <field type="group" name="buttonStyling" label="JDB_SLIDER_BUTTON_STYLING"></field>
+            <field type="group" name="secondaryButtonStyling" label="JDB_SLIDER_SECONDARY_BUTTON_STYLING"></field>
+
+            <field name="sliderHeight" type="list" label="JDB_HEIGHT" default="21:9" group="basic" search="false">
+               <option value="16:9">JDB_SLIDER_HEIGHT_AUTO</option>
+               <option value="21:9">JDB_SLIDER_HEIGHT_219</option>
+               <option value="4:3">JDB_SLIDER_HEIGHT_43</option>
+               <option value="1:1">JDB_SLIDER_HEIGHT_SQUARE</option>
+               <option value="custom">JDB_CUSTOM</option>
+            </field>
+
+            <field type="slider" name="sliderHeightValue" label="JDB_MAX_HEIGHT" group="basic" unit="px" min="1" max="1400" step="1" default="400" showon="params.sliderHeight=='custom'">
+            </field>
+
+            <field name="sliderAnimation" type="list" label="JDB_SLIDER_SLIDE_ANIMATION" default="slide" search="false" group="basic">
+               <option value="slide">JDB_ANIMATION_SLIDE</option>
+               <option value="fade">JDB_ANIMATION_FADE</option>
+               <option value="scale">JDB_ANIMATION_SCALE</option>
+               <option value="pull">JDB_ANIMATION_PULL</option>
+               <option value="push">JDB_ANIMATION_PUSH</option>
+            </field>
+
+            <field type="radio" name="sliderWidth" label="JDB_SLIDER_SLIDER_WIDTH" default="full" group="basic" radiotype="buttons">
+               <option value="full">JDB_FULL_WIDTH</option>
+               <option value="boxed">JDB_BOXED</option>
+            </field>
+
+            <field type="slider" name="sliderWidthValue" label="JDB_MAX_WIDTH" default='{"value":100,"unit":"%"}' max="1600" min="0" units="px,%" showon="params.sliderWidth=='boxed'" group="basic" responsive="true">
+            </field>
+
+            <!-- Start Slide -->
+            <field type="repeatable" name="slides" label="JDB_SLIDER_SLIDES" group="slides" item-title-field="title" item-title="Title" default='[{"background":"none","backgroundColor":"","backgroundImage":"","backgroundRepeat":"","backgroundSize":"","backgroundAttachment":"","backgroundPosition":"","backgroundVideoMedia":"","preTitle":"","title":"Astroid Framework for Joomla!","description":"Powerful framework for designers and developers to create responsive, fast &amp; robust Joomla based websites and templates.","buttonText":"Download","link":"#","linkTargetBlank":false,"linkNoFollow":false,"secondaryButtonText":"Demo","secondaryLink":"#","secondaryLinkTargetBlank":false,"secondaryLinkNoFollow":false,"media":"image","image":"link:https://astroidframework.com/images/hero-thumb.png","altText":"","video":"","mediaPosition":"left", "mediaVPosition":"center", "mediaVPosition":"center","contentWidth":{"md":{"value":50,"unit":"%"},"sm":{"value":50,"unit":"%"},"xs":{"value":50,"unit":"%"}},"contentHPosition":"margin-right","contentVPosition":"center","contentAlignment":"center"},{"background":"none","backgroundColor":"","backgroundImage":"","backgroundRepeat":"","backgroundSize":"","backgroundAttachment":"","backgroundPosition":"","backgroundVideoMedia":"","preTitle":"Pretext","title":"Layout Builder","description":"Powerful admin panel to manage everything from multiple header layouts to page layouts","buttonText":"Learn More","link":"#","linkTargetBlank":false,"linkNoFollow":false,"secondaryButtonText":"","secondaryLink":"#","secondaryLinkTargetBlank":false,"secondaryLinkNoFollow":false,"media":"image","image":"link:https://astroidframework.com/images/powerful-admin-panel.png","altText":"","video":"","mediaPosition":"right","contentWidth":{"md":{"value":50,"unit":"%"},"sm":{"value":50,"unit":"%"},"xs":{"value":50,"unit":"%"}},"contentHPosition":"margin-right","contentVPosition":"center","contentAlignment":"center"},{"background":"none","backgroundColor":"","backgroundImage":"","backgroundRepeat":"","backgroundSize":"","backgroundAttachment":"","backgroundPosition":"","backgroundVideoMedia":"","preTitle":"Mega Menu Builder","title":"Easy to use and configure drag and drop mega menu builder","description":"It’s simple and easy to build multi-level mega menu with Astroid framework. Simply enable and start building your mega menu. You can add modules as well as the regular submenu items. Drag and drop functionality allows you to manage your menu items easily.","buttonText":"Learn More","link":"#","linkTargetBlank":false,"linkNoFollow":false,"secondaryButtonText":"","secondaryLink":"#","secondaryLinkTargetBlank":false,"secondaryLinkNoFollow":false,"media":"image","image":"link:https://astroidframework.com/images/advanced-draganddrop-layout-builder.png","altText":"","video":"","mediaPosition":"left", "mediaVPosition":"center","contentWidth":{"md":{"value":50,"unit":"%"},"sm":{"value":50,"unit":"%"},"xs":{"value":50,"unit":"%"}},"contentHPosition":"margin-right","contentVPosition":"center","contentAlignment":"center"}]'>
+               <form>
+                  <field type="radio" name="background" label="JDB_BACKGROUND" default="none" group="background" radiotype="buttons">
+                     <option value="none">JDB_NONE</option>
+                     <option value="color">JDB_COLOR</option>
+                     <option value="image">JDB_BACKGROUND_IMAGE</option>
+                     <option value="video">JDB_BACKGROUND_VIDEO</option>
+                  </field>
+
+                  <!-- Background Color -->
+                  <field type="color" name="backgroundColor" label="JDB_BACKGROUND_COLOR" group="background" showon="params.background=='color'[OR]params.background=='image'" default="">
+                  </field>
+
+                  <!-- Background Image -->
+                  <field type="image" name="backgroundImage" label="JDB_BACKGROUND_UPLOAD_IMAGE_LABEL" group="background" showon="params.background=='image'" default="">
+                  </field>
+
+                  <field type="list" name="backgroundRepeat" label="JDB_BACKGROUND_REPEAT_LABEL" group="background" showon="params.background=='image'[AND]params.backgroundImage!=''" width="6" default="">
+                     <option value="">JDB_BACKGROUND_REPEAT_INHERIT</option>
+                     <option value="no-repeat">JDB_BACKGROUND_NO_REPEAT</option>
+                     <option value="repeat-x">JDB_BACKGROUND_REPEAT_X</option>
+                     <option value="repeat-y">JDB_BACKGROUND_REPEAT_Y</option>
+                     <option value="space">JDB_BACKGROUND_REPEAT_SPACE</option>
+                     <option value="round">JDB_BACKGROUND_REPEAT_ROUND</option>
+                  </field>
+
+                  <field type="list" name="backgroundSize" label="JDB_BACKGROUND_SIZE_LABEL" group="background" showon="params.background=='image'[AND]params.backgroundImage!=''" width="6" default="" search="false">
+                     <option value="">JDB_BACKGROUND_SIZE_INHERIT</option>
+                     <option value="cover">JDB_BACKGROUND_SIZE_COVER</option>
+                     <option value="contain">JDB_BACKGROUND_SIZE_CONTAIN</option>
+                  </field>
+
+                  <field type="list" name="backgroundAttachment" label="JDB_BACKGROUND_ATTACHMENT" group="background" showon="params.background=='image'[AND]params.backgroundImage!=''" width="6" default="" search="false">
+                     <option value="">JDB_INHERIT</option>
+                     <option value="fixed">JDB_BACKGROUND_FIXED</option>
+                     <option value="scroll">JDB_BACKGROUND_SCROLL</option>
+                  </field>
+
+                  <field type="list" name="backgroundPosition" label="JDB_BACKGROUND_POSITION_LABEL" group="background" showon="params.background=='image'[AND]params.backgroundImage!=''" width="6" default="">
+                     <option value="">JDB_BACKGROUND_POSITION_DEFAULT</option>
+                     <option value="left top">JDB_BACKGROUND_POSITION_LEFT_TOP</option>
+                     <option value="left center">JDB_BACKGROUND_POSITION_LEFT_CENTER</option>
+                     <option value="left bottom">JDB_BACKGROUND_POSITION_LEFT_BOTTOM</option>
+                     <option value="right top">JDB_BACKGROUND_POSITION_RIGHT_TOP</option>
+                     <option value="right center">JDB_BACKGROUND_POSITION_RIGHT_CENTER</option>
+                     <option value="right bottom">JDB_BACKGROUND_POSITION_RIGHT_BOTTOM</option>
+                     <option value="center top">JDB_BACKGROUND_POSITION_CENTER_TOP</option>
+                     <option value="center center">JDB_BACKGROUND_POSITION_LABEL_CENTER_CENTER</option>
+                     <option value="center bottom">JDB_BACKGROUND_POSITION_CENTER_BOTTOM</option>
+                  </field>
+
+                  <!-- Background Video -->
+                  <field type="video" label="JDB_SLIDER_UPLOAD_VIDEO" name="backgroundVideoMedia" showon="params.background=='video'" group="background" default="">
+                  </field>
+
+                  <field type="spacer" label="JDB_SLIDER_OVERLAY_DIVIDER" showon="params.background=='video'[OR]params.background=='image'"></field>
+
+                  <field type="slider" label="JDB_OPACITY" name="backgroundOverlayOpacity" showon="params.background=='video'[OR]params.background=='image'" group="backgroundOverlay" unit="%" default="50">
+                  </field>
+
+                  <field type="color" name="backgroundOverlayColor" label="JDB_OVERLAY_COLOR" group="backgroundOverlay" showon="params.background=='video'[OR]params.background=='image'" default="">
+                  </field>
+
+                  <field type="spacer" label="JDB_CONTENT_DIVIDER"></field>
+
+                  <field type="text" name="preTitle" label="JDB_SLIDER_PRE_TITLE" width="6" default=""></field>
+
+                  <field type="text" name="title" label="JDB_TITLE" width="6" default=""></field>
+
+                  <field type="code-editor" name="description" label="JDB_ELEMENT_DESCRIPTION_LBL" mini="true" language="html" default=""></field>
+
+                  <field type="spacer" label="JDB_BUTTON" showon="params.buttonText != ''"></field>
+
+                  <field type="text" name="buttonText" label="JDB_BUTTON_TEXT" default=""></field>
+
+                  <field name="link" type="text" label="JDB_LINK_LABEL" showon="params.buttonText != ''" default="#">
+                  </field>
+
+                  <field name="linkTargetBlank" type="switch" label="JDB_LINK_TARGET_LBL" default="false" showon="params.link!=''[AND]params.buttonText != ''">
+                  </field>
+
+                  <field name="linkNoFollow" type="switch" label="JDB_LINK_NOFOLLOW_LBL" default="false" showon="params.link!=''[AND]params.buttonText != ''">
+                  </field>
+
+                  <field type="spacer" label="JDB_SLIDER_SECONDARY_BUTTON" showon="params.buttonText != ''[OR]params.secondaryButtonText != ''"></field>
+
+                  <field type="text" name="secondaryButtonText" label="JDB_SLIDER_SECONDARY_BUTTON_TEXT" default=""></field>
+
+                  <field name="secondaryLink" type="text" label="JDB_LINK_LABEL" showon="params.secondaryButtonText != ''" default="#">
+                  </field>
+
+                  <field name="secondaryLinkTargetBlank" type="switch" label="JDB_LINK_TARGET_LBL" default="false" showon="params.secondaryLink!=''[AND]params.secondaryButtonText != ''">
+                  </field>
+
+                  <field name="secondaryLinkNoFollow" type="switch" label="JDB_LINK_NOFOLLOW_LBL" default="false" showon="params.secondaryLink!=''[AND]params.secondaryButtonText != ''">
+                  </field>
+
+                  <field name="sliderButtonAlignment" label="JDB_BUTTON_ALIGNMENT" default="center" type="radio" radiotype="buttons">
+                     <option value="left">JDB_LEFT</option>
+                     <option value="center">JDB_CENTER</option>
+                     <option value="right">JDB_RIGHT</option>
+                     <option value="stacked">JDB_STACKED</option>
+                  </field>
+
+                  <field type="spacer" label="JDB_MEDIA" showon="params.media != ''"></field>
+
+                  <field type="radio" name="media" label="JDB_MEDIA" default="none" radiotype="buttons">
+                     <option value="none">JDB_NONE</option>
+                     <option value="image">JDB_BACKGROUND_IMAGE</option>
+                     <option value="video">JDB_BACKGROUND_VIDEO</option>
+                  </field>
+
+                  <field name="image" type="image" label="JDB_MEDIA_IMAGE_LBL" showon="params.media=='image'">
+                  </field>
+
+                  <field type="text" name="altText" label="JDB_SLIDER_ALT_TEXT" default="" showon="params.media=='image'"></field>
+
+                  <field name="video" type="video" label="JDB_MEDIA_VIDEO_LBL" showon="params.media=='video'">
+                  </field>
+
+                  <field type="spacer" label="JDB_SLIDER_MEDIA_POSITION" showon="params.media != 'none'"></field>
+
+                  <field name="mediaPosition" type="radio" label="JDB_SLIDER_MEDIA_POSITION" default="left" radiotype="buttons" showon="params.media!='none'">
+                     <option value="left">JDB_LEFT</option>
+                     <option value="right">JDB_RIGHT</option>
+                  </field>
+
+                  <field name="mediaVPosition" type="radio" label="JDB_SLIDER_MEDIA_VERTICAL_POSITION" default="center" radiotype="buttons" showon="params.media!='none'">
+                     <option value="start">JDB_TOP</option>
+                     <option value="center">JDB_MIDDLE</option>
+                     <option value="end">JDB_BOTTOM</option>
+                  </field>
+
+                  <field type="spacer" label="JDB_SLIDER_CONTENT_STYLE_DIVIDER" showon="params.contentWidth != ''"></field>
+
+                  <field type="slider" name="contentWidth" label="JDB_SLIDER_CONTENT_WIDTH" default='{"value":50,"unit":"%"}' max="1000" min="0" units="px,%" responsive="true">
+                  </field>
+
+                  <field name="contentHPosition" type="radio" label="JDB_SLIDER_CONTENT_POSITION" showon="params.media=='none'" default="left" radiotype="buttons">
+                     <option value="margin-right">JDB_LEFT</option>
+                     <option value="margin">JDB_CENTER</option>
+                     <option value="margin-left">JDB_RIGHT</option>
+                  </field>
+
+                  <field name="contentVPosition" type="radio" label="JDB_SLIDER_CONTENT_VERTICAL_POSITION" default="center" radiotype="buttons">
+                     <option value="start">JDB_TOP</option>
+                     <option value="center">JDB_MIDDLE</option>
+                     <option value="end">JDB_BOTTOM</option>
+                  </field>
+
+                  <field name="contentAlignment" type="radio" label="JDB_SLIDER_CONTENT_TEXT_ALIGN" default="left" radiotype="buttons">
+                     <option value="left">JDB_LEFT</option>
+                     <option value="center">JDB_CENTER</option>
+                     <option value="right">JDB_RIGHT</option>
+                     <option value="justify">JDB_JUSTIFY</option>
+                  </field>
+               </form>
+            </field>
+            <!-- End Slide -->
+
+            <field type="switch" name="arrows" label="JDB_SLIDER_ARROWS" default="true" group="settings">
+            </field>
+
+            <field type="switch" name="pagination" label="JDB_SLIDER_PAGINATION" default="false" group="settings">
+            </field>
+
+            <field type="radio" name="paginationPosition" showon="params.pagination" label="JDB_SLIDER_PAGINATION_POSITION" default="outside" group="settings" radiotype="buttons">
+               <option value="outside">JDB_OUTSIDE</option>
+               <option value="inside">JDB_INSIDE</option>
+            </field>
+
+            <field type="switch" name="infinite" label="JDB_SLIDER_INFINITE_LOOP" default="true" group="settings">
+            </field>
+
+            <field type="switch" name="draggable" label="JDB_SLIDER_DRAGGABLE" description="Enable pointer dragging." default="true" group="settings">
+            </field>
+
+            <field type="switch" name="autoplay" label="JDB_SLIDER_AUTO_PLAY" default="true" group="settings">
+            </field>
+
+            <field type="switch" name="pauseOnHover" label="JDB_SLIDER_PAUSE_ON_HOVER" default="true" showon="params.autoplay" group="settings">
+            </field>
+
+            <field type="slider" name="autoplayInterval" showon="params.autoplay" label="JDB_SLIDER_AUTOPLAY_INTERVAL" description="The delay between switching slides in autoplay mode." default="7000" min="500" max="20000" step="100" unit="MS" group="settings" />
+
+            <field type="slider" name="arrowSize" label="JDB_SLIDER_ARROW_SIZE" default="" max="100" min="5" unit="px" group="navigationStyling" responsive="true">
+            </field>
+
+            <field type="color" name="arrowColor" label="JDB_SLIDER_ARROW_COLOR" group="navigationStyling"></field>
+
+            <field type="slider" name="paginationSize" label="JDB_SLIDER_PAGINATION_SIZE" default="" max="100" min="5" unit="px" group="navigationStyling" responsive="true">
+            </field>
+
+            <field type="color" name="paginationColor" label="JDB_SLIDER_PAGINATION_COLOR" default="" group="navigationStyling" width="6"></field>
+
+            <field type="color" name="paginationActiveColor" label="JDB_SLIDER_PAGINATION_ACTIVE_COLOR" default="" width="6" group="navigationStyling"></field>
+
+            <field type="spacer" label="JDB_SLIDER_PRE_TITLE_DIVIDER" group="contentStyling"></field>
+
+            <field type="slider" name="pretextSpacing" label="JDB_SLIDER_PRE_TITLE_SPACING" min="0" max="200" unit="px" default="" responsive="true" group="contentStyling">
+            </field>
+
+            <field type="color" name="pretextColor" label="JDB_SLIDER_PRE_TITLE_COLOR" default="" group="contentStyling">
+            </field>
+
+            <field type="typography" name="pretextTypography" label="JDB_SLIDER_PRE_TITLE_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="contentStyling">
+            </field>
+
+            <field type="spacer" label="JDB_TITLE" group="contentStyling"></field>
+
+            <field type="slider" name="titleSpacing" label="JDB_SLIDER_TITLE_SPACING" group="contentStyling" min="0" max="200" unit="px" default="" responsive="true"></field>
+
+            <field type="color" name="titleColor" label="JDB_SLIDER_TITLE_COLOR" default="" group="contentStyling">
+            </field>
+
+            <field type="typography" name="titleTypography" label="JDB_SLIDER_TITLE_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="contentStyling">
+            </field>
+
+            <field type="spacer" label="JDB_DESCRIPTION_DIVIDER" group="contentStyling"></field>
+
+            <field type="slider" name="descriptionSpacing" label="JDB_SLIDER_DESCRIPTION_SPACING" group="contentStyling" min="0" max="200" unit="px" default="" responsive="true"></field>
+
+            <field type="color" name="descriptionColor" label="JDB_SLIDER_DESCRIPTION_COLOR" default="" group="contentStyling">
+            </field>
+
+            <field type="typography" name="descriptionTypography" label="JDB_SLIDER_DESCRIPTION_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="contentStyling">
+            </field>
+
+            <field type="fieldsgroup" name="primaryButton" filename="button" group="buttonStyling">
+               <property name="type" default="primary"></property>
+               <property name="alignment" default="center" invisible="true"></property>
+               <property name="icon" default="" invisible="true"></property>
+               <property name="iconSpacer" default="" invisible="true"></property>
+            </field>
+
+            <field type="fieldsgroup" name="secondaryButton" filename="button" group="secondaryButtonStyling">
+               <property name="type" default="secondary"></property>
+               <property name="alignment" default="center" invisible="true"></property>
+               <property name="icon" default="" invisible="true"></property>
+               <property name="iconSpacer" default="" invisible="true"></property>
+            </field>
+         </fieldset>
+      </fields>
+   </form>
+</element>

@@ -1,0 +1,17 @@
+{{^inline}}
+<div class="jdb-col">
+    {{/inline}}
+    <div class="{{ class }}">
+        <label class="{{ labelClass }}">{{ label }}</label>
+        {{#inline}}
+        <div class="jdb-col jdb-reCAPTCHA-wrapper">
+            {{/inline}}
+            <div id="{{ id }}-reCAPTCHA" class="jdb-form-recaptcha {{ position }}" data-theme="{{ theme }}">
+            </div>
+            {{#inline}}
+        </div>
+        {{/inline}}
+    </div>
+    {{^inline}}
+</div>
+{{/inline}}

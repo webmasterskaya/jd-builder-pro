@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element>
+   <form>
+      <fields>
+         <!-- Design Options -->
+         <fieldset name="design" ordering="9" label="JDB_DESIGN_TITLE">
+            <!--  Design Groups -->
+            <field type="group" ordering="4" name="particlesBgOptions" label="JDB_PARTICLES_BACKGROUND"></field>
+
+            <field type="switch" name="particlesBackground" label="JDB_ENABLE_PARTICLES" default="false" group="particlesBgOptions">
+            </field>
+
+            <field type="radio" name="particlesType" label="JDB_ELEMENT_TYPE_LABEL" default="presets" radiotype="buttons" group="particlesBgOptions" showon="params.particlesBackground">
+               <option value="presets">JDB_PRESETS</option>
+               <option value="custom">JDB_CUSTOM</option>
+            </field>
+
+            <!-- Presets -->
+            <field type="particlespresets" label="JDB_SELECT_PRESET" group="particlesBgOptions" default="default" showon="params.particlesBackground[AND]params.particlesType=='presets'" name="particlesPreset"></field>
+
+            <field type="list" name="particlesShape" label="JDB_PARTICLES_SHAPE" default="" group="particlesBgOptions" showon="params.particlesBackground[AND]params.particlesType=='presets'">
+               <option value="">JDB_DEFAULT_PRESETS</option>
+               <option value="circle">JDB_OPTIONS_CIRCLE</option>
+               <option value="edge">JDB_OPTIONS_EDGE</option>
+               <option value="triangle">JDB_OPTIONS_TRIANGLE</option>
+               <option value="polygon">JDB_OPTIONS_POLYGON</option>
+               <option value="star">JDB_OPTIONS_STAR</option>
+               <option value="image">JDB_IMAGE</option>
+            </field>
+
+            <field type="image" name="particlesImage" label="JDB_PARTICLES_IMAGE" default="" group="particlesBgOptions" showon="params.particlesBackground[AND]params.particlesType=='presets'[AND]params.particlesShape=='image'"></field>
+
+            <field type="slider" changeOnSlide="false" name="particlesSize" showon="params.particlesBackground[AND]params.particlesType=='presets'" label="JDB_PARTICLES_SIZE" group="particlesBgOptions" min="1" max="500" unit="" default="">
+            </field>
+
+            <field type="slider" changeOnSlide="false" name="particlesCount" showon="params.particlesBackground[AND]params.particlesType=='presets'" label="JDB_PARTICLES_COUNT" group="particlesBgOptions" min="1" max="500" unit="" default="">
+            </field>
+
+            <field type="color" name="particlesColor" label="JDB_PARTICLES_COLOR" default="" group="particlesBgOptions" showon="params.particlesBackground[AND]params.particlesType=='presets'[AND]params.particlesShape!='image'"></field>
+
+            <field type="slider" changeOnSlide="false" name="particlesOpacity" showon="params.particlesBackground[AND]params.particlesType=='presets'[AND]params.particlesShape!='image'" label="JDB_PARTICLES_OPACITY" group="particlesBgOptions" unit="%" default="">
+            </field>
+
+            <field type="slider" changeOnSlide="false" name="particlesSpeed" showon="params.particlesBackground[AND]params.particlesType=='presets'" label="JDB_PARTICLES_MOVE_SPEED" group="particlesBgOptions" min="0" max="100" unit="" default="">
+            </field>
+
+            <field type="list" name="particlesDirection" label="JDB_PARTICLES_MOVE_DIRECTION" default="" group="particlesBgOptions" showon="params.particlesBackground[AND]params.particlesType=='presets'[AND]params.particlesSpeed!=0">
+               <option value="">JDB_DEFAULT_PRESETS</option>
+               <option value="none">JDB_RANDOM</option>
+               <option value="top">JDB_TOP</option>
+               <option value="top-right">JDB_TOP_RIGHT</option>
+               <option value="top-left">JDB_TOP_LEFT</option>
+               <option value="right">JDB_RIGHT</option>
+               <option value="bottom">JDB_BOTTOM</option>
+               <option value="bottom-right">JDB_BOTTOM_RIGHT</option>
+               <option value="bottom-left">JDB_BOTTOM_LEFT</option>
+               <option value="left">JDB_LEFT</option>
+            </field>
+
+            <field type="radio" name="particlesLink" label="JDB_PARTICLES_LINE_LINKED" default="" radiotype="buttons" group="particlesBgOptions" showon="params.particlesBackground[AND]params.particlesType=='presets'">
+               <option value="">JDB_DEFAULT_PRESETS</option>
+               <option value="none">JDB_NONE</option>
+               <option value="custom">JDB_CUSTOM</option>
+            </field>
+
+            <field type="color" name="particlesLinkColor" label="JDB_PARTICLES_LINE_LINKED_COLOR" default="" group="particlesBgOptions" showon="params.particlesBackground[AND]params.particlesType=='presets'[AND]params.particlesLink=='custom'"></field>
+
+            <field type="slider" changeOnSlide="false" name="particlesLinkOpacity" showon="params.particlesBackground[AND]params.particlesType=='presets'[AND]params.particlesLink=='custom'" label="JDB_PARTICLES_LINE_LINKED_OPACITY" group="particlesBgOptions" unit="%" default="">
+            </field>
+
+            <field type="slider" changeOnSlide="false" name="particlesLinkDistance" showon="params.particlesBackground[AND]params.particlesType=='presets'[AND]params.particlesLink=='custom'" label="JDB_PARTICLES_LINE_LINKED_DISTANCE" group="particlesBgOptions" min="1" max="250" unit="" default="">
+            </field>
+            <!-- Presets -->
+
+            <field type="alert" label="primary" description="JDB_PARTICLESJS_ALERT" showon="params.particlesBackground[AND]params.particlesType=='custom'" group="particlesBgOptions"></field>
+
+            <field type="code-editor" name="particlesCustom" label="JDB_PARTICLES_CUSTOM_CONFIG" group="particlesBgOptions" language="json" default="" showon="params.particlesBackground[AND]params.particlesType=='custom'">
+            </field>
+         </fieldset>
+      </fields>
+   </form>
+</element>

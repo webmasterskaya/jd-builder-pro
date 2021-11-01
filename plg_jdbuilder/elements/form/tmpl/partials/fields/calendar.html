@@ -1,0 +1,13 @@
+{{#inline}}
+<div class="jdb-col">
+{{/inline}}
+    <div class="input-group">
+        <input data-parsley-errors-container="#{{ field.id }}-errors" id="{{ field.id }}" name="{{ field.name }}" type="text"{{#field.required}} required="required"{{/field.required}} class="{{ field.class }}"{{{field.attributes}}} />
+        <label for="{{ field.id }}" class="input-group-append">
+            <span class="input-group-text"><span class="fas fa-calendar"></span></span>
+        </label>
+    </div>
+{{#inline}}
+</div>
+{{/inline}}
+<div id="{{ field.id }}-errors"></div>

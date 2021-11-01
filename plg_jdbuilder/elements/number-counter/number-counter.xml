@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="number-counter">
+   <title>Number Counter</title>
+   <icon>media/jdbuilder/images/icons/elements/number-counter.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/number-counter-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <!--  Element Options -->
+            <field type="group" name="iconsettings" label="JDB_NUMBERCOUNTER_ICON_SETTING"></field>
+            <field type="group" name="titlesettings" label="JDB_NUMBERCOUNTER_TITLE_SETTING"></field>
+            <field type="group" name="numbersettings" label="JDB_NUMBERCOUNTER_NUMBER_SETTING"></field>
+            <field
+               name="icon"
+               type="icon"
+               label="JDB_ICON"
+               default="fas fa-users"
+               group="basic"
+            >
+            </field>
+            <field
+               type="text"
+               name="title"
+               label="JDB_TITLE"
+               group="basic"
+               default="Happy Customers"
+            />
+            <field
+               type="number"
+               name="startValue"
+               label="JDB_NUMBERCOUNTER_START"
+               default="0"
+               min="0"
+               step="1"
+               max="10000000"
+               group="basic"
+               width="6"
+            />
+            <field
+               type="number"
+               name="endValue"
+               label="JDB_NUMBERCOUNTER_END"
+               default="1542"
+               min="0"
+               step="1"
+               max="10000000"
+               group="basic"
+               width="6"
+            />
+
+            <field
+               type="text"
+               name="prefix"
+               label="JDB_NUMBERCOUNTER_PREFIX"
+               group="basic"
+               default=""
+               width="6"
+            />
+
+            <field
+               type="text"
+               name="suffix"
+               label="JDB_NUMBERCOUNTER_SUFFIX"
+               default="+"
+               group="basic"
+               width="6"
+            />
+
+            <field
+               type="list"
+               name="separator"
+               label="JDB_NUMBERCOUNTER_THOUSAND_SEPARATOR"
+               default="comma"
+               group="basic"
+               width="6"
+               search="false"
+            >
+               <option value="">JDB_NONE</option>
+               <option value="comma">JDB_NUMBERCOUNTER_THOUSAND_SEPARATOR_COMMA</option>
+               <option value="dot">JDB_NUMBERCOUNTER_THOUSAND_SEPARATOR_DOT</option>
+            </field>
+
+            <field
+               type="number"
+               name="decimalPlaces"
+               label="JDB_NUMBERCOUNTER_DECIMAL_PLACES"
+               default="0"
+               min="0"
+               max="10"
+               step="1"
+               group="basic"
+               width="6"
+            />
+            
+            <field
+               type="slider"
+               name="duration"
+               label="JDB_NUMBERCOUNTER_DURATION"
+               default="2000"
+               min="0"
+               max="10000"
+               step="100"
+               unit="ms"
+               group="numbersettings"
+            />
+
+            <field 
+               type="slider" 
+               name="spacingBetween"
+               label="JDB_SPACE_BETWEEN"
+               min="0"
+               max="100"
+               unit="px"
+               default="5"
+               responsive="true"
+               group="numbersettings">
+            </field>
+
+            <field
+               type="color"
+               name="counterColor"
+               label="JDB_COLOR"
+               default="" 
+               group="numbersettings"
+            />
+
+            <field
+               type="typography"
+               name="counterTypography"
+               label="JDB_TYPOGRAPHY"
+               responsive="true"
+               default=""
+               group="numbersettings"
+            />
+
+            <field
+               name="titlePosition"
+               type="radio" 
+               label="JDB_POSITION"
+               default="bottom" 
+               radiotype="buttons"
+               group="titlesettings"
+            >
+               <option value="top">JDB_TOP</option>
+               <option value="bottom">JDB_BOTTOM</option>
+            </field>
+
+            <field
+               type="color"
+               name="titleColor"
+               label="JDB_COLOR"
+               default="" 
+               group="titlesettings"
+            />
+            
+            <field
+               type="typography"
+               name="titleTypography"
+               label="JDB_TYPOGRAPHY"
+               responsive="true"
+               default='{"family":"", "size":16, "sizeUnit":"px", "alignment":"center", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}'
+               group="titlesettings"
+            />
+
+            <field
+               name="iconSize"
+               type="slider"
+               label="JDB_NUMBERCOUNTER_ICON_SIZE"
+               default="80"
+               unit="px"
+               min="1"
+               max="200"
+               group="iconsettings"
+               responsive="true"
+            >
+            </field>
+         
+            <!-- Icon Style -->
+            <field
+               name="iconTextColor"
+               type="color"
+               label="JDB_COLOR"
+               default=""
+               group="iconsettings"
+               width="6"
+            >
+            </field>
+            <field
+               name="iconBackgroundColor"
+               type="color"
+               label="JDB_BACKGROUND_COLOR"
+               default=""
+               group="iconsettings"
+               width="6"
+            >
+            </field>
+            <field
+               type="gradient"
+               label="JDB_BACKGROUND_GRADIENT_LABEL"
+               name="iconGradient"
+               default=""
+               group="iconsettings"
+            >
+            </field>
+            
+            <field
+               type="spacer"
+               group="iconsettings"
+            >
+            </field>
+            
+            <field
+               name="iconPadding"
+               type="spacing"
+               label="JDB_PADDING"
+               group="iconsettings"
+               default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}'
+               responsive="true"
+            >
+            </field>
+            
+            <!-- Icon Border -->
+            <field
+               name="iconShape"
+               type="list"
+               label="JDB_NUMBERCOUNTER_ICON_SHAPE"
+               default="circle"
+               group="iconsettings"
+               search="false"
+            >
+               <option value="rounded">JDB_OPTIONS_ROUNDED</option>
+               <option value="circle">JDB_OPTIONS_CIRCLE</option>
+               <option value="square">JDB_OPTIONS_SQUARE</option>
+            </field>
+
+            <field
+               type="spacing"
+               name="iconBorderRadius"
+               label="JDB_BORDER_RADIUS"
+               default='{"unit":"px","lock":1,"top":5,"left":5,"right":5,"bottom":5}'
+               group="iconsettings"
+               showon="params.iconShape=='rounded'"
+               corners="true"
+               responsive="true"
+            >
+            </field>
+            <field
+               type="list"
+               name="iconBorderStyle"
+               label="JDB_BORDER_TYPE"
+               default="none"
+               group="iconsettings">
+               <option value="none">JDB_BORDER_NONE</option>
+               <option value="solid">JDB_BORDER_SOLID</option>
+               <option value="dashed">JDB_BORDER_DASHED</option>
+               <option value="dotted">JDB_BORDER_DOTTED</option>
+               <option value="double">JDB_BORDER_DOUBLE</option>
+            </field>
+            <field
+               type="spacing"
+               name="iconBorderWidth"
+               label="JDB_BORDER_WIDTH"
+               showon="params.iconBorderStyle!='none'"
+               default='{"unit":"px","lock":1,"top":1,"left":1,"right":1,"bottom":1}'
+               group="iconsettings"
+               responsive="true"
+            >
+            </field>
+            <field
+               name="iconBorderColor"
+               type="color"
+               label="JDB_BORDER_COLOR"
+               showon="params.iconBorderStyle!='none'"
+               default=""
+               group="iconsettings"
+            >
+            </field>
+            <field
+               type="boxshadow"
+               name="iconBoxShadow"
+               label="JDB_NUMBERCOUNTER_ICON_SHADOW"
+               default=""
+               group="iconsettings"
+            >
+            </field>
+         </fieldset>
+      </fields>
+   </form>
+</element>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="business-hour">
+   <title>Business Hour</title>
+   <icon>media/jdbuilder/images/icons/elements/business-hours.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/business-hour-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <!--  Element Options -->
+            <field type="group" name="styling" label="JDB_BUSINESS_HOURS_STYLING"></field>
+
+            <field type="repeatable" name="days" label="JDB_BUSINESS_HOURS_TIMING" group="basic" item-title-field="day" item-title="JDB_BUSINESS_HOURS_DAY" default='[{"day":"Monday", "time":"10:00-05:00", "style": false, "dayColor": "", "timeColor": "", "background": ""},{"day":"Tuesday", "time":"10:00-05:00", "style": false, "dayColor": "", "timeColor": "", "background": ""},{"day":"Wednesday", "time":"10:00-05:00", "style": false, "dayColor": "", "timeColor": "", "background": ""},{"day":"Thrusday", "time":"10:00-05:00", "style": false, "dayColor": "", "timeColor": "", "background": ""},{"day":"Friday", "time":"10:00-05:00", "style": false, "dayColor": "", "timeColor": "", "background": ""},{"day":"Saturday-Sunday", "time":"Closed", "style": true, "dayColor": "", "timeColor": "#FF0000", "background": ""}]'>
+               <form>
+                  <field type="text" name="day" label="JDB_BUSINESS_HOURS_ENTER_DAY" default=""></field>
+                  <field type="text" name="time" label="JDB_BUSINESS_HOURS_ENTER_TIME" default=""></field>
+                  <field type="switch" name="style" label="JDB_BUSINESS_HOURS_STYLE_THIS_DAY" default="false"></field>
+                  <field type="color" name="dayColor" label="JDB_BUSINESS_HOURS_DAY_COLOR" default="" showon="params.style==true" width="6"></field>
+                  <field type="color" name="timeColor" label="JDB_BUSINESS_HOURS_TIME_COLOR" default="" showon="params.style==true" width="6"></field>
+                  <field type="color" name="background" label="JDB_BUSINESS_HOURS_BACKGROUND_COLOR" default="" showon="params.style==true"></field>
+               </form>
+            </field>
+
+            <field type="spacing" name="rowPadding" min="0" label="JDB_BUSINESS_HOURS_ROW_PADDING" group="styling" default='{"unit":"px","lock":1,"top":"","left":"","right":"","bottom":""}' responsive="true">
+            </field>
+
+            <field type="spacer" label="JDB_BUSINESS_HOURS_DIVIDER" group="styling">
+            </field>
+
+            <field type="switch" name="divider" label="JDB_BUSINESS_HOURS_DIVIDER" default="false" group="styling">
+            </field>
+
+            <field name="dividerStyle" type="radio" radiotype="buttons" label="JDB_BUSINESS_HOURS_STYLE" default="solid" showon="params.divider" group="styling" width="7">
+               <option value="solid">JDB_BORDER_SOLID</option>
+               <option value="dotted">JDB_BORDER_DOTTED</option>
+               <option value="dashed">JDB_BORDER_DASHED</option>
+            </field>
+
+            <field type="color" name="dividerColor" label="JDB_COLOR" default="" showon="params.divider" group="styling" width="5"/>
+
+            <field type="slider" name="dividerWeight" label="JDB_WEIGHT" min="0" max="20" unit="px" default="" showon="params.divider" group="styling"/>
+
+            <field type="spacer" label="JDB_BUSINESS_HOURS_DAY_TIME_SPACER" group="styling">
+            </field>
+
+            <field type="color" name="dayColor" label="JDB_BUSINESS_HOURS_DAY_COLOR" default="" group="styling"/>
+
+            <field name="dayTypography" type="typography" label="JDB_TYPOGRAPHY_LABEL" default="" responsive="true" group="styling">
+            </field>
+
+            <field type="color" name="timeColor" label="JDB_BUSINESS_HOURS_TIME_COLOR" default="" group="styling"/>
+
+            <field name="timeTypography" type="typography" label="JDB_BUSINESS_HOURS_TIME_TYPOGRAPHY" default="" responsive="true" group="styling">
+            </field>
+
+            <field type="switch" name="striped" label="JDB_BUSINESS_HOURS_STRIPED_EFFECT" default="true" group="styling"/>
+
+            <field type="color" name="oddBackground" label="JDB_BUSINESS_HOURS_ODD_BACKGROUND" default="#ffffff" showon="params.striped" group="styling" width="6"/>
+
+            <field type="color" name="evenBackground" label="JDB_BUSINESS_HOURS_EVEN_BACKGROUND" default="#f7f7f7" showon="params.striped" group="styling" width="6"/>
+         </fieldset>
+      </fields>
+   </form>
+</element>

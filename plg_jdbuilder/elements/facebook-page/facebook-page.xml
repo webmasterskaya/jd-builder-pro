@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="facebook-page">
+   <title>Facebook Page</title>
+   <icon>media/jdbuilder/images/icons/elements/facebook-page.svg</icon>
+   <creationDate>March 2019</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/facebook-page-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <!--  Element Options -->
+            <field
+               name="fbPageUrl"
+               type="text"
+               label="JDB_FB_PAGE_URL"
+               description="JDB_FB_PAGE_URL_DESC"
+               placeholder="JDB_FB_PAGE_URL_DESC"
+               group="basic"
+               default="https://www.facebook.com/JoomDev"
+               >
+            </field>
+            <field
+               name="fbLayout"
+               type="list"
+               label="JDB_FB_LAYOUT"
+               default='["timeline"]'
+               group="basic"
+               multiple="true"
+               search="false"
+               >
+               <option value="timeline">JDB_FB_LAYOUT_TIMELINE</option>
+               <option value="events">JDB_FB_LAYOUT_EVENTS</option>
+               <option value="messages">JDB_FB_LAYOUT_MESSAGES</option>
+            </field>
+            <field
+               name="smallHeader"
+               type="switch"
+               label="JDB_FB_SMALL_HEADER"
+               default="true"
+               group="basic">
+            </field>
+            <field
+               name="coverPhoto"
+               type="switch"
+               label="JDB_FB_COVER_PHOTO"
+               default="true"
+               group="basic">
+            </field>
+            <field
+               name="facepile"
+               type="switch"
+               label="JDB_FB_FRIEND_FACES"
+               default="true"
+               group="basic">
+            </field>
+            <field
+               name="cta"
+               type="switch"
+               label="JDB_FB_CUSTOM_CAT"
+               description="JDB_FB_CUSTOM_CAT_DESC"
+               default="true"
+               showon="!params.smallHeader"
+               group="basic">
+            </field>
+            <field
+               name="fbWidth"
+               type="slider"
+               label="JDB_WIDTH"
+               min="180"
+               max="500"
+               unit="px"
+               default="340"
+               group="basic"
+               >
+            </field>
+            <field
+               name="fbHeight"
+               type="slider"
+               label="JDB_HEIGHT"
+               min="70"
+               max="1000"
+               unit="px"
+               default="500"
+               group="basic"
+               > 
+            </field>
+         </fieldset>
+      </fields>
+   </form>
+</element>

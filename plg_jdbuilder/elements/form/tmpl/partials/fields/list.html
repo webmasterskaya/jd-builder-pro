@@ -1,0 +1,11 @@
+{{#inline}}
+<div class="jdb-col">
+{{/inline}}
+    <select id="{{ field.id }}" name="{{ field.name }}"{{#field.required}} required="required"{{/field.required}} class="{{ field.class }}"{{{field.attributes}}}>
+        {{#field.options}}
+        <option value="{{value}}">{{value}}</option>
+        {{/field.options}}
+    </select>
+{{#inline}}
+</div>
+{{/inline}}

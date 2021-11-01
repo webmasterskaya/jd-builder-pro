@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="form">
+   <title>Form</title>
+   <icon>media/jdbuilder/images/icons/elements/contact-form.svg</icon>
+   <creationDate>Mar 2020</creationDate>
+   <author>JoomDev</author>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>https://www.joomdev.com</authorUrl>
+   <copyright>Copyright (C) 2020 Joomdev, Inc. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <version>1.0</version>
+   <description>Element Description Here</description>
+   <documentation>https://docs.joomdev.com/article/form-element/</documentation>
+   <form>
+      <fields>
+         <fieldset name="general" label="JDB_GENERAL_TITLE">
+            <field type="group" name="labelOptions" label="JDB_CFORM_GROUP_LABEL_OPTIONS"></field>
+            <field type="group" name="inputOptions" label="JDB_CFORM_GROUP_INPUT_OPTIONS"></field>
+            <field type="group" name="submitOptions" label="JDB_BUTTON_OPTIONS"></field>
+            <field type="group" name="messageOptions" label="JDB_CFORM_GROUP_MESSAGE_OPTIONS"></field>
+            <field type="group" name="formOptions" label="JDB_CFORM_GROUP_FORM_OPTIONS"></field>
+            <field type="group" name="reCAPTCHAOptions" showon="params.reCAPTCHA" label="JDB_CFORM_GROUP_RECAPTCHA_OPTIONS"></field>
+            <field type="group" name="submitAction" label="JDB_CFORM_GROUP_SUBMIT_OPTIONS"></field>
+            <field type="group" showon="params.afterSubmitAddAction.indexOf('email')>-1" name="submitActionEmail" label="JDB_CFORM_GROUP_ADMIN_MAIL_OPTIONS"></field>
+            <field type="group" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1" name="submitActionConfirmMail" label="JDB_CFORM_GROUP_USER_MAIL_OPTIONS"></field>
+            <field type="group" showon="params.afterSubmitAddAction.indexOf('redirect')>-1" name="submitActionRedirect" label="JDB_CFORM_GROUP_REDIRECT_OPTIONS"></field>
+            <field type="group" showon="params.afterSubmitAddAction.indexOf('webhook')>-1" name="submitActionWebhook" label="JDB_CFORM_GROUP_WEBHOOK"></field>
+
+            <!-- Basic Options -->
+            <field type="repeatable" taggable="true" tag-key="name" tag-exclude='{"type":"html"}' name="fields" label="JDB_CFORM_ADD_FIELD" item-title-field="label" default='[{"name":"name","type":"text","label":"Name","value":"","required":true,"width":{"md":{"value":50,"unit":"%"},"sm":{"value":100,"unit":"%"},"xs":{"value":100,"unit":"%"}},"options":"","placeholder":"","textarearows":"5","min_length":"","max_length":"","min":"","max":"","optionslayout":"inline","calendar_min":"","calendar_max":"","calendar_format":""},{"name":"email","type":"email","label":"Email","value":"","required":true,"width":{"md":{"value":50,"unit":"%"},"sm":{"value":100,"unit":"%"},"xs":{"value":100,"unit":"%"}},"options":"","placeholder":"","textarearows":"5","min_length":"","max_length":"","min":"","max":"","optionslayout":"inline","calendar_min":"","calendar_max":"","calendar_format":""},{"name":"message","type":"textarea","label":"Message","value":"","required":true,"width":{"md":{"value":100,"unit":"%"},"sm":{"value":100,"unit":"%"},"xs":{"value":100,"unit":"%"}},"options":"","placeholder":"","textarearows":"5","min_length":"","max_length":"","min":"","max":"","optionslayout":"inline","calendar_min":"","calendar_max":"","calendar_format":""}]' group="basic">
+               <form>
+                  <field showon="params.type!='html'" name="name" alphanumeric="true" type="text" label="JDB_CFORM_NAME" description="JDB_CFORM_NAME_DESC" default="field_{index}" />
+                  <field name="type" type="list" required="true" label="JDB_CFORM_TYPE" description="JDB_CFORM_TYPE_DESC" default="text">
+                     <option value="text">JDB_CFORM_TYPE_TEXT</option>
+                     <option value="textarea">JDB_CFORM_TYPE_TEXTAREA</option>
+                     <option value="radio">JDB_CFORM_TYPE_RADIO</option>
+                     <option value="checkbox">JDB_CFORM_TYPE_CHECKBOX</option>
+                     <option value="checkboxes">JDB_CFORM_TYPE_CHECKBOXES</option>
+                     <option value="calendar">JDB_CFORM_TYPE_CALENDAR</option>
+                     <option value="list">JDB_CFORM_TYPE_LIST</option>
+                     <option value="email">JDB_CFORM_TYPE_EMAIL</option>
+                     <option value="number">JDB_CFORM_TYPE_NUMBER</option>
+                     <option value="url">JDB_CFORM_TYPE_URL</option>
+                     <option value="file">JDB_CFORM_TYPE_FILE</option>
+                     <option value="password">JDB_CFORM_TYPE_PASSWORD</option>
+                     <option value="html">JDB_CFORM_TYPE_HTML</option>
+                     <option value="hidden">JDB_CFORM_TYPE_HIDDEN</option>
+                     <option value="phone">JDB_CFORM_TYPE_PHONE</option>
+                  </field>
+                  <field showon="params.type!='hidden'" name="label" type="text" label="JDB_CFORM_LABEL" description="JDB_CFORM_LABEL_DESC" default="Field {index}" />
+                  <field showon="params.type=='text'[OR]params.type=='password'[OR]params.type=='textarea'[OR]params.type=='email'[OR]params.type=='number'[OR]params.type=='url'[OR]params.type=='calendar'[OR]params.type=='phone'" name="placeholder" type="text" label="JDB_CFORM_PLACEHOLDER_LBL" description="JDB_CFORM_PLACEHOLDER_DESC" default="" />
+                  <field taggable="true" showon="params.type=='hidden'" name="value" type="text" label="JDB_CFORM_VALUE" description="JDB_CFORM_VALUE_DESC" default="" />
+                  <field showon="params.type=='list'" name="multiple" type="switch" label="JDB_CFORM_MULTIPLE_SELECTION" default="false">
+                  </field>
+                  <field showon="params.type=='checkbox'" name="checked" type="switch" label="JDB_CFORM_DEFAULT_CHECKED" default="false">
+                  </field>
+                  <field showon="params.type!='hidden'[AND]params.type!='html'" name="required" type="switch" label="JDB_CFORM_REQUIRED" description="JDB_CFORM_REQUIRED_DESC" default="false">
+                  </field>
+                  <field showon="params.type=='phone'" name="countryCodes" type="switch" label="JDB_CFORM_COUNTRY_CODE" description="JDB_CFORM_COUNTRY_CODE_DESC" default="false">
+                  </field>
+                  <field type="slider" name="width" label="JDB_WIDTH" description="JDB_CFORM_WIDTH_DESC" default='{"md":{"value":100,"unit":"%"},"sm":{"value":100,"unit":"%"},"xs":{"value":100,"unit":"%"}}' max="1500" min="0" units="px,%" showon="params.type!='hidden'" responsive="true">
+                  </field>
+                  <field showon="params.type=='list'[OR]params.type=='radio'[OR]params.type=='checkboxes'" name="options" type="textarea" label="JDB_CFORM_OPTIONS" description="JDB_CFORM_OPTIONS_DESC" />
+                  <field showon="params.type=='textarea'" name="textarearows" type="number" default="5" min="1" max="200" label="JDB_CFORM_TEXTAREA_ROWS" />
+                  <field showon="params.type=='text'[OR]params.type=='password'[OR]params.type=='number'" name="min_length" width="6" type="number" label="JDB_CFORM_MIN_LENGTH" description="JDB_CFORM_MIN_LENGTH_DESC" default="" />
+                  <field showon="params.type=='text'[OR]params.type=='password'[OR]params.type=='number'" name="max_length" width="6" type="number" label="JDB_CFORM_MAX_LENGTH" description="JDB_CFORM_MAX_LENGTH_DESC" />
+                  <field showon="params.type=='number'" name="min" type="number" width="6" label="JDB_CFORM_MIN_VALUE" description="JDB_CFORM_MIN_VALUE_DESC" />
+                  <field showon="params.type=='number'" name="max" type="number" width="6" label="JDB_CFORM_MAX_VALUE" description="JDB_CFORM_MAX_VALUE_DESC" />
+                  <field showon="params.type=='number'" name="step" type="number" label="JDB_CFORM_STEP"/>
+                  <field showon="params.type=='checkboxes'[OR]params.type=='radio'" name="optionslayout" type="radio" radiotype="buttons" label="JDB_CFORM_OPTIONS_LAYOUT" description="JDB_CFORM_OPTIONS_LAYOUT_DESC" default="inline">
+                     <option value="inline">JDB_INLINE</option>
+                     <option value="vertical">JDB_VERTICAL</option>
+                  </field>
+                  <field showon="params.type=='calendar'" name="calendar_min_enable" type="switch" label="JDB_CFORM_OPTIONS_CALENDAR_MIN" description="JDB_CFORM_OPTIONS_CALENDAR_MIN_DESC" />
+                  <field showon="params.type=='calendar'[AND]params.calendar_min_enable" name="calendar_min" type="date" label="JDB_BLANK_LABEL"/>
+                  <field showon="params.type=='calendar'" name="calendar_max_enable" type="switch" label="JDB_CFORM_OPTIONS_CALENDAR_MAX" description="JDB_CFORM_OPTIONS_CALENDAR_MAX_DESC" />
+                  <field showon="params.type=='calendar'[AND]params.calendar_max_enable" name="calendar_max" type="date" label="JDB_BLANK_LABEL"/>
+                  <field showon="params.type=='calendar'" default="MM-DD-YYYY" name="calendar_format" type="text" label="JDB_CFORM_OPTIONS_CALENDAR_DATE_FOMRAT" description="JDB_CFORM_OPTIONS_CALENDAR_DATE_FOMRAT_DESC" hint="MM-DD-YYYY" />
+                  <field showon="params.type=='file'" default="jpg,jpeg,png,gif,pdf,txt" name="file_extensions" type="text" label="JDB_CFORM_ALLOWED_FILE_TYPE"/>
+                  <field showon="params.type=='file'" default="" name="max_file_size" type="number" label="JDB_CFORM_MAX_FILE_SIZE"/>
+                  <field type="alert" label="warning" description="JDB_PHP_MAX_UPLOAD_SIZE" showon="params.type=='file'"></field>
+                  <field type="code-editor" language="html" label="HTML Content" description="" name="content" showon="params.type=='html'"></field>
+               </form>
+            </field>
+
+            <!-- Label Options -->
+            <field name="inputLabel" type="switch" label="JDB_LABEL" default="true" group="labelOptions">
+            </field>
+
+            <field name="requiredMark" showon="params.inputLabel" type="switch" label="JDB_CFORM_REQUIRED_MARK" default="true" group="labelOptions">
+            </field>
+
+            <field name="inputLabelInline" showon="params.inputLabel" type="switch" label="JDB_CFORM_INLINE_LABEL" default="false" group="labelOptions">
+            </field>
+
+            <field type="slider" showon="params.inputLabel[AND]params.inputLabelInline" name="inputLabelInlineWidth" label="JDB_CFORM_LABEL_WIDTH" default='{"value":25,"unit":"%"}' max="1500" min="0" units="px,%" responsive="true" group="labelOptions">
+            </field>
+
+            <field type="slider" showon="params.inputLabel[AND]!params.inputLabelInline" name="labelSpacing" label="JDB_CFORM_LABEL_SPACING" default='{"value":null,"unit":"px"}' max="200" min="0" unit="px" responsive="true" group="labelOptions">
+            </field>
+
+            <field type="color" name="labelColor" label="JDB_COLOR" default="" group="labelOptions" showon="params.inputLabel" />
+
+            <field type="typography" name="labelTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="labelOptions" showon="params.inputLabel">
+            </field>
+            <!-- Label Options -->
+
+            <!-- Input Options -->
+            <field type="list" name="inputSize" label="JDB_CFORM_INPUT_SIZE" default="" search="false" group="inputOptions">
+               <option value="sm">JDB_SIZE_SM</option>
+               <option value="">JDB_SIZE_MD</option>
+               <option value="lg">JDB_SIZE_LG</option>
+            </field>
+
+            <field type="color" name="inputColor" label="JDB_CFORM_INPUT_COLOR" default="" group="inputOptions" />
+
+            <field type="color" name="placeholderColor" label="JDB_CFORM_PLACEHOLDER_COLOR" default="" group="inputOptions" />
+
+            <field type="color" name="inputBackground" label="JDB_BACKGROUND_COLOR" default="" group="inputOptions" />
+
+            <field type="typography" name="inputTypography" label="JDB_TYPOGRAPHY" default='{"family":"", "size":"", "sizeUnit":"px", "alignment":"", "weight":"", "transform":"", "style":"", "decoration":"", "lineHeight":"", "lineHeightUnit": "px", "letterSpacing":"", "letterSpacingUnit": "px"}' responsive="true" group="inputOptions">
+            </field>
+
+            <field type="fieldsgroup" name="inputBorder" filename="border" group="inputOptions">
+            </field>
+            <!-- Input Options -->
+
+            <!-- Button Starts -->
+            <field placeholder="Submit" type="text" name="submitText" label="JDB_BUTTON_TEXT" default="Send" group="submitOptions">
+            </field>
+
+            <field type="slider" showon="!params.inputLabelInline" name="submitWidth" label="JDB_CONTAINER_WIDTH" default='{"md":{"value":100,"unit":"%"},"sm":{"value":100,"unit":"%"},"xs":{"value":100,"unit":"%"}}' max="1500" min="0" units="px,%" responsive="true" group="submitOptions">
+            </field>
+
+            <field type="text" name="submitClass" label="JDB_CUSTOM_CLASS_LABEL" default="" group="submitOptions">
+            </field>
+
+            <field type="fieldsgroup" name="submit" filename="button" group="submitOptions">
+               <property name="icon" default="fas fa-paper-plane"></property>
+               <property name="iconPosition" default="left"></property>
+               <property name="iconSpacing" default="5"></property>
+               <property name="alignment" default="left"></property>
+            </field>
+            <!-- Button Ends -->
+
+            <!-- Message Options -->
+
+            <field type="spacer" label="JDB_CFORM_SUCCESS_MESSAGE_DIVIDER" group="messageOptions" />
+
+            <field type="editor" taggable="true" name="successMessage" label="JDB_CFORM_SUCCESS_MESSAGE" group="messageOptions" placeholder="" default="JDB_CFORM_DEFAULT_SUCCESS_MESSAGE">
+            </field>
+
+            <field type="color" name="successColor" label="JDB_TEXT_COLOR" default="" group="messageOptions" />
+
+            <field type="color" name="successBackground" label="JDB_BACKGROUND_COLOR" default="" group="messageOptions" />
+
+            <field type="fieldsgroup" name="successBorder" filename="border" group="messageOptions">
+            </field>
+
+            <field type="spacer" label="JDB_CFORM_ERROR_MESSAGES" group="messageOptions" />
+
+            <field type="color" name="errorColor" label="JDB_TEXT_COLOR" default="" group="messageOptions" />
+
+            <field type="color" name="errorBackground" label="JDB_BACKGROUND_COLOR" default="" group="messageOptions" />
+
+            <field type="fieldsgroup" name="errorBorder" filename="border" group="messageOptions">
+            </field>
+            <!-- Message Options -->
+
+            <!-- Form Options -->
+            <field type="slider" name="columnsGap" label="JDB_COLUMN_GAP" default="" min="0" max="100" unit="px" group="formOptions" responsive="true" />
+
+            <field type="slider" name="rowsGap" label="JDB_COLUMN_ROWS_GAP" min="0" max="100" unit="px" group="formOptions" responsive="true" />
+
+            <field type="spacer" group="formOptions" />
+
+            <field name="reCAPTCHA" type="switch" label="JDB_CFORM_ENABLE_RECAPTCHA" default="false" group="formOptions">
+            </field>
+
+            <field type="spacer" showon="params.additionalOptionCustomMsg=='1'" group="formOptions" />
+
+            <!-- Form Options -->
+
+            <!-- reCAPTCHA Options -->
+
+            <field showon="params.reCAPTCHA" name="reCAPTCHALabel" type="text" label="JDB_CFORM_LABEL" description="JDB_CFORM_LABEL_DESC" group="reCAPTCHAOptions" default="Captcha Label" />
+
+            <field type="slider" showon="!params.inputLabelInline" name="reCAPTCHAWidth" label="JDB_CONTAINER_WIDTH" default='{"md":{"value":100,"unit":"%"},"sm":{"value":100,"unit":"%"},"xs":{"value":100,"unit":"%"}}' max="1500" min="0" units="px,%" responsive="true" group="reCAPTCHAOptions">
+            </field>
+
+            <field type="alert" label="warning" description="JDB_CFORM_RECAPTCHA_WARNING" showon="params.reCAPTCHA" group="reCAPTCHAOptions"></field>
+            <field showon="params.reCAPTCHA" group="reCAPTCHAOptions" name="recaptchaPosition" type="radio" radiotype="buttons" label="JDB_POSITION" default="left">
+               <option value="left">JDB_LEFT</option>
+               <option value="center">JDB_CENTER</option>
+               <option value="right">JDB_RIGHT</option>
+            </field>
+            <field showon="params.reCAPTCHA" group="reCAPTCHAOptions" name="recaptchaTheme" type="radio" radiotype="buttons" label="JDB_THEME" default="light">
+               <option value="light">JDB_LIGHT</option>
+               <option value="dark">JDB_DARK</option>
+            </field>
+            <!-- reCAPTCHA Options -->
+
+            <field type="list" name="afterSubmitAddAction" label="JDB_CFORM_ADD_ACTION" default='["email"]' multiple="true" group="submitAction" search="false">
+               <option value="email">JDB_CFORM_ADMIN_MAIL</option>
+               <option value="redirect">JDB_CFORM_REDIRECT</option>
+               <option value="confirm-mail">JDB_CFORM_USER_MAIL</option>
+               <option value="webhook">JDB_CFORM_WEBHOOK</option>
+            </field>
+
+            <!-- Email Options Starts -->
+            <field taggable="true" name="emailTo" type="text" label="JDB_CFORM_MAIL_TO" description="JDB_CFORM_MULTIPLE_EMAILS_DESC" default="" showon="params.afterSubmitAddAction.indexOf('email')>-1" group="submitActionEmail">
+            </field>
+            <field name="emailSubject" taggable="true" type="text" label="JDB_CFORM_SUBJECT" default="" showon="params.afterSubmitAddAction.indexOf('email')>-1" group="submitActionEmail">
+            </field>
+
+
+            <field showInfo="true" name="emailCustom" type="switch" label="JDB_CFORM_CUSTOM_EMAIL_TEMPLATE" description="JDB_CFORM_CUSTOM_EMAIL_TEMPLATE_DESC" group="submitActionEmail" showon="params.afterSubmitAddAction.indexOf('email')>-1" default="false">
+            </field>
+
+            <field name="emailMessage" type="editor" taggable="true" label="JDB_CFORM_MAIL_BODY" default="JDB_CFORM_EMAIL_DEFAULT_BODY" showon="params.afterSubmitAddAction.indexOf('email')>-1[AND]!params.emailCustom" group="submitActionEmail">
+            </field>
+
+            <field name="emailFooter" type="editor" taggable="true" label="JDB_CFORM_MAIL_FOOTER" default="JDB_CFORM_EMAIL_DEFAULT_FOOTER" showon="params.afterSubmitAddAction.indexOf('email')>-1[AND]!params.emailCustom" group="submitActionEmail">
+            </field>
+
+            <field taggable="true" name="emailCustomTemplate" type="code-editor" language="html" label="JDB_CFORM_EMAIL_TEMPLATE" default="" showon="params.afterSubmitAddAction.indexOf('email')>-1[AND]params.emailCustom" group="submitActionEmail">
+            </field>
+
+            <field name="emailFromEmail" taggable="true" type="text" label="JDB_CFORM_FROM_EMAIL" default="" showon="params.afterSubmitAddAction.indexOf('email')>-1" group="submitActionEmail">
+            </field>
+            <field name="emailFromName" taggable="true" type="text" label="JDB_CFORM_FROM_NAME" default="" showon="params.afterSubmitAddAction.indexOf('email')>-1" group="submitActionEmail">
+            </field>
+            <field name="emailReply" taggable="true" type="text" label="JDB_CFORM_REPLY_TO" description="JDB_CFORM_MULTIPLE_EMAILS_DESC" default="" showon="params.afterSubmitAddAction.indexOf('email')>-1" group="submitActionEmail">
+            </field>
+            <field name="emailCC" taggable="true" type="text" label="JDB_CFORM_MAIL_CC" description="JDB_CFORM_MULTIPLE_EMAILS_DESC" default="" showon="params.afterSubmitAddAction.indexOf('email')>-1" group="submitActionEmail">
+            </field>
+            <field name="emailBCC" taggable="true" type="text" label="JDB_CFORM_MAIL_BCC" description="JDB_CFORM_MULTIPLE_EMAILS_DESC" default="" showon="params.afterSubmitAddAction.indexOf('email')>-1" group="submitActionEmail">
+            </field>
+            <field name="emailAs" type="list" label="JDB_CFORM_SEND_AS" default="html" showon="params.afterSubmitAddAction.indexOf('email')>-1" group="submitActionEmail" search="false">
+               <option value="html">JDB_CFORM_HTML</option>
+               <option value="plain">JDB_CFORM_PLAIN</option>
+            </field>
+            <field name="emailAttachments" type="switch" label="JDB_CFORM_ADD_ATTACHMENTS" default="true" showon="params.afterSubmitAddAction.indexOf('email')>-1" group="submitActionEmail">
+            </field>
+            <!-- Email Options Ends -->
+
+            <!-- User Email Options Starts -->
+            <field taggable="true" name="confirmEmailTo" type="text" label="JDB_CFORM_CONFIRME_MAIL_TO" description="JDB_CFORM_MULTIPLE_EMAILS_DESC" default="" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1" group="submitActionConfirmMail">
+            </field>
+            <field taggable="true" name="confirmEmailSubject" type="text" label="JDB_CFORM_SUBJECT" default="" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1" group="submitActionConfirmMail">
+            </field>
+            <field showInfo="true" name="confirmEmailCustom" type="switch" label="JDB_CFORM_CUSTOM_EMAIL_TEMPLATE" group="submitActionConfirmMail" description="JDB_CFORM_CUSTOM_EMAIL_TEMPLATE_DESC" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1" default="false">
+            </field>
+            <field taggable="true" name="confirmEmailMessage" type="editor" label="JDB_CFORM_MAIL_BODY" default="JDB_CFORM_MAIL_BODY_DEFAULT" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1[AND]!params.confirmEmailCustom" group="submitActionConfirmMail">
+            </field>
+            <field taggable="true" name="confirmEmailFooter" type="editor" label="JDB_CFORM_MAIL_FOOTER" default="JDB_CFORM_MAIL_FOOTER_DEFAULT" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1[AND]!params.confirmEmailCustom" group="submitActionConfirmMail">
+            </field>
+            <field taggable="true" name="confirmEmailCustomTemplate" type="code-editor" language="html" label="JDB_CFORM_EMAIL_TEMPLATE" default="" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1[AND]params.confirmEmailCustom" group="submitActionConfirmMail">
+            </field>
+            <field taggable="true" name="confirmEmailFromEmail" type="text" label="JDB_CFORM_FROM_EMAIL" default="" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1" group="submitActionConfirmMail">
+            </field>
+            <field taggable="true" name="confirmEmailFromName" type="text" label="JDB_CFORM_FROM_NAME" default="" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1" group="submitActionConfirmMail">
+            </field>
+            <field taggable="true" name="confirmEmailReply" type="text" label="JDB_CFORM_REPLY_TO" description="JDB_CFORM_MULTIPLE_EMAILS_DESC" default="" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1" group="submitActionConfirmMail">
+            </field>
+            <field taggable="true" name="confirmEmailCC" type="text" label="JDB_CFORM_MAIL_CC" description="JDB_CFORM_MULTIPLE_EMAILS_DESC" default="" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1" group="submitActionConfirmMail">
+            </field>
+            <field taggable="true" name="confirmEmailBCC" type="text" label="JDB_CFORM_MAIL_BCC" description="JDB_CFORM_MULTIPLE_EMAILS_DESC" default="" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1" group="submitActionConfirmMail">
+            </field>
+            <field name="confirmEmailAs" type="list" label="JDB_CFORM_SEND_AS" default="html" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1" group="submitActionConfirmMail">
+               <option value="html">Html</option>
+               <option value="plain">Plain</option>
+            </field>
+            <field name="confirmEmailAttachments" type="switch" label="JDB_CFORM_ADD_ATTACHMENTS" default="true" showon="params.afterSubmitAddAction.indexOf('confirm-mail')>-1" group="submitActionConfirmMail">
+            </field>
+            <!-- User Email Options Ends -->
+
+            <!-- Redirect Options Starts -->
+            <field name="redirectURL" type="text" label="JDB_CFORM_REDIRECT" default="" showon="params.afterSubmitAddAction.indexOf('redirect')>-1" group="submitActionRedirect">
+            </field>
+            <field name="redirectDelay" type="number" label="JDB_CFORM_REDIRECT_DELAY" showon="params.afterSubmitAddAction.indexOf('redirect')>-1" group="submitActionRedirect" min="0" default="3000">
+            </field>
+            <!-- Redirect Options Ends -->
+
+            <!-- Webhook Options Starts -->
+            <field taggable="true" name="webhookURL" type="textarea" label="JDB_CFORM_WEBHOOK_URL" default="" showon="params.afterSubmitAddAction.indexOf('webhook')>-1" group="submitActionWebhook">
+            </field>
+            <field showon="params.afterSubmitAddAction.indexOf('webhook')>-1" group="submitActionWebhook" name="webhookMethod" type="radio" radiotype="buttons" label="JDB_CFORM_REQUEST_TYPE" default="POST">
+               <option value="GET">JDB_CFORM_WEBHOOK_GET_TYPE</option>
+               <option value="POST">JDB_CFORM_WEBHOOK_POST_TYPE</option>
+            </field>
+            <field type="repeatable" showon="params.afterSubmitAddAction.indexOf('webhook')>-1[AND]params.webhookMethod=='POST'" name="webhookData" label="JDB_CFORM_ADD_FORM_DATA" item-title-field="key" group="submitActionWebhook">
+               <form>
+                  <field taggable="true" width="6" name="key" type="text" label="JDB_CFORM_WEBHOOK_KEY" default="" />
+                  <field taggable="true" width="6" name="value" type="text" label="JDB_CFORM_WEBHOOK_VALUE" default="" />
+               </form>
+            </field>
+            <!-- Webhook Options Ends -->
+         </fieldset>
+      </fields>
+   </form>
+</element>

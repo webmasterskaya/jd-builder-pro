@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element>
+    <form>
+        <fields>
+            <fieldset name="general" label="JDB_GENERAL_TITLE">
+                <field type="switch" name="faqSchema" default="false" label="JDB_ACCORDION_SCHEMA" group="basic" description="JDB_ACCORDION_SCHEMA_DESC">
+                </field>
+            </fieldset>
+        </fields>
+    </form>
+</element>
